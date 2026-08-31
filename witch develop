@@ -1,0 +1,6 @@
+* [33m8bf1e87[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;32mfeature/login[m[33m)[m Update setup guide in feature/login branch
+* [33mda16a4a[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m, [m[1;32mfeature/payment[m[33m, [m[1;32mbugfix/authentication[m[33m)[m Add dummy file in docker folder for practice
+* [33m38bbd61[m Add hello.sh script to print Hello DevOps
+* [33m75b7a2a[m Add setup guide documentation
+* [33m0fd1465[m Add .gitignore to exclude logs, temp files, node_modules
+* [33m714a04c[m initial commit
