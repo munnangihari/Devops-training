@@ -27,9 +27,19 @@ pipeline {
                 '''
             }
         }
-stage('Build') {
-    steps {
-        sh 'docker build -t python-app:latest docker/python-app'
+
+        stage('Build') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    # Option 1: Run FastAPI app with Uvicorn
+                    uvicorn app:app --host 0.0.0.0 --port 8000 --app-dir docker/python-app
+
+                    # Option 2: Build Docker image instead
+                    # docker build -t python-app:latest docker/python-app
+                '''
+            }
+        }
     }
 }
 
