@@ -15,7 +15,7 @@ pipeline {
         python3 -m venv testenv
         . testenv/bin/activate
         pip install -r docker/python-app/requirements.txt
-	pip install pytest
+	pip install pytest httpx2
         '''
     }
 }
