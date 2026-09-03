@@ -27,18 +27,9 @@ pipeline {
                 '''
             }
         }
-
-        stage('Build') {
-            steps {
-                sh '''
-                    . venv/bin/activate
-                    # Example: run your app or package it
-                    python docker/python-app/app.py
-                    # Or build Docker image if you prefer
-                    # docker build -t python-app:latest docker/python-app
-                '''
-            }
-        }
+stage('Build') {
+    steps {
+        sh 'docker build -t python-app:latest docker/python-app'
     }
 }
 
