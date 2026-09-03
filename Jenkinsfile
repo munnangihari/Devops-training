@@ -10,15 +10,14 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                // Install Python dependencies
-                sh '''
-                python3 -m venv testenv
-                source testenv/bin/activate
-                pip install -r docker/python-app/requirements.txt
-                '''
-            }
-        }
+    steps {
+        sh '''
+        python3 -m venv testenv
+        . testenv/bin/activate
+        pip install -r docker/python-app/requirements.txt
+        '''
+    }
+}
 
         stage('Test') {
             steps {
