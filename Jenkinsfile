@@ -3,10 +3,11 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                git url: 'https://github.com/yourname/linux-devops.git', branch: 'main'
-            }
-        }
+    steps {
+        git url: 'https://github.com/munnangihari/devops-training.git', branch: 'main'
+    }
+}
+
 
         stage('Install Dependencies') {
             steps {
