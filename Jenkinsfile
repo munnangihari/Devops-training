@@ -23,9 +23,9 @@ pipeline {
             steps {
                 // Run unit tests with pytest
                 sh '''
-                source testenv/bin/activate
-                pytest --maxfail=1 --disable-warnings -q
-                '''
+    . testenv/bin/activate
+    pytest --junitxml=test-results.xml
+'''
             }
         }
 
