@@ -6,11 +6,6 @@ pipeline {
         EC2_HOST = "ubuntu@16.171.0.212"
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/munnangihari/Devops-training.git'
-            }
-        }
         stage('Unit Tests') {
             steps {
                 sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt && pytest tests/"'
