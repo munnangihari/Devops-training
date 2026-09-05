@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/your-repo/devops-week1-project.git'
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                sh 'pip install -r application/requirements.txt'
+                sh 'pytest tests/'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t devops-week1-app .'
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKER_PASS')]) {
+                    sh 'echo $DOCKER_PASS | docker login -u your-dockerhub-username --password-stdin'
+                    sh 'docker tag devops-week1-app your-dockerhub-username/devops-week1-app:latest'
+                    sh 'docker push your-dockerhub-username/devops-week1-app:latest'
+                }
+            }
+        }
+
+        stage('Deploy to EC2') {
+            steps {
+                sh 'ssh -o StrictHostKeyChecking=no ec2-user@<EC2_PUBLIC_IP> "docker pull your-dockerhub-username/devops-week1-app:latest && docker run -d -p 80:8000 your-dockerhub-username/devops-week1-app:latest"'
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                sh './scripts/health-check.sh'
+            }
+        }
+    }
+}
+
