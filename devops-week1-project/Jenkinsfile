@@ -1,31 +1,26 @@
 pipeline {
     agent any
-
     environment {
         DOCKER_IMAGE = "devops-week1-app"
-        DOCKER_REGISTRY = "<your-dockerhub-username>"
-        EC2_HOST = "ubuntu@<EC2_PUBLIC_IP>"
+        DOCKER_REGISTRY = "munnangihari"
+        EC2_HOST = "ubuntu@16.171.0.212"
     }
-
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/munnangihari/Devops-training.git'
             }
         }
-
         stage('Unit Tests') {
             steps {
                 sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt && pytest tests/"'
             }
         }
-
         stage('Docker Build') {
             steps {
                 sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
-
         stage('Push to Docker Hub') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
@@ -35,18 +30,26 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy to EC2') {
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no $EC2_HOST "cd ~/devops-week1-project && ./scripts/deploy.sh"'
+                sshagent(credentials: ['ec2-ssh-key']) {
+                    sh '''
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "mkdir -p ~/devops-week1-project/scripts"
+                        scp -o StrictHostKeyChecking=no scripts/deploy.sh $EC2_HOST:~/devops-week1-project/scripts/
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/deploy.sh && ~/devops-week1-project/scripts/deploy.sh"
+                    '''
+                }
             }
         }
-
         stage('Health Check') {
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no $EC2_HOST "cd ~/devops-week1-project && ./scripts/health-check.sh"'
+                sshagent(credentials: ['ec2-ssh-key']) {
+                    sh '''
+                        scp -o StrictHostKeyChecking=no scripts/health-check.sh $EC2_HOST:~/devops-week1-project/scripts/
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/health-check.sh && ~/devops-week1-project/scripts/health-check.sh localhost 8000"
+                    '''
+                }
             }
         }
     }
 }
-
