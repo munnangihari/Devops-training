@@ -9,11 +9,11 @@ pipeline {
         }
 
         stage('Unit Tests') {
-            steps {
-                // Run tests inside Python Docker container
-                sh 'docker run --rm -v $PWD:/app -w /app python:3.11 bash -c "pip install -r application/requirements.txt && pytest tests/"'
-            }
-        }
+    steps {
+        sh 'docker run --rm -v $PWD:/app -w /app python:3.11-slim bash -c "pip install -r application/requirements.txt && pytest tests/"'
+    }
+}
+
 
         stage('Docker Build') {
             steps {
