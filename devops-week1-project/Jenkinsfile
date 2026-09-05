@@ -1,40 +1,50 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKER_IMAGE = "devops-week1-app"
+        DOCKER_REGISTRY = "<your-dockerhub-username>"
+        EC2_HOST = "ubuntu@<EC2_PUBLIC_IP>"
+    }
+
     stages {
         stage('Checkout') {
-            options {
-                // Retry checkout stage up to 2 times if Jenkins restarts
-                retry(2)
-            }
             steps {
                 git branch: 'main', url: 'https://github.com/munnangihari/Devops-training.git'
             }
         }
 
         stage('Unit Tests') {
-    steps {
-        sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt && pytest tests/"'
-    }
-}
-
+            steps {
+                sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt && pytest tests/"'
+            }
+        }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t devops-week1-app .'
+                sh 'docker build -t $DOCKER_IMAGE .'
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    sh 'docker tag $DOCKER_IMAGE:latest $DOCKER_REGISTRY/$DOCKER_IMAGE:latest'
+                    sh 'docker push $DOCKER_REGISTRY/$DOCKER_IMAGE:latest'
+                }
             }
         }
 
         stage('Deploy to EC2') {
             steps {
-                // Use deploy.sh script for cleaner deployment
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@<EC2_PUBLIC_IP> "cd ~/devops-week1-project && git pull && ./scripts/deploy.sh"'
+                sh 'ssh -o StrictHostKeyChecking=no $EC2_HOST "cd ~/devops-week1-project && ./scripts/deploy.sh"'
             }
         }
 
         stage('Health Check') {
             steps {
-                sh './scripts/health-check.sh'
+                sh 'ssh -o StrictHostKeyChecking=no $EC2_HOST "cd ~/devops-week1-project && ./scripts/health-check.sh"'
             }
         }
     }
