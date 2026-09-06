@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Unit Tests') {
             steps {
-                sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt && pytest tests/"'
+                sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt pytest httpx && pytest tests/ -v"'
             }
         }
         stage('Docker Build') {
@@ -28,11 +28,7 @@ pipeline {
         stage('Deploy to EC2') {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
-                    sh '''
-                        ssh -o StrictHostKeyChecking=no $EC2_HOST "mkdir -p ~/devops-week1-project/scripts"
-                        scp -o StrictHostKeyChecking=no scripts/deploy.sh $EC2_HOST:~/devops-week1-project/scripts/
-                        ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/deploy.sh && ~/devops-week1-project/scripts/deploy.sh"
-                    '''
+                    sh 'ssh -o StrictHostKeyChecking=no $EC2_HOST "bash -s" < scripts/deploy.sh'
                 }
             }
         }
@@ -40,8 +36,9 @@ pipeline {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
                     sh '''
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "mkdir -p ~/devops-week1-project/scripts"
                         scp -o StrictHostKeyChecking=no scripts/health-check.sh $EC2_HOST:~/devops-week1-project/scripts/
-                        ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/health-check.sh && ~/devops-week1-project/scripts/health-check.sh localhost 8000"
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/health-check.sh && PORT=8000 ~/devops-week1-project/scripts/health-check.sh"
                     '''
                 }
             }
