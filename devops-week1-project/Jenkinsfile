@@ -3,32 +3,41 @@ pipeline {
     environment {
         DOCKER_IMAGE = "devops-week1-app"
         DOCKER_REGISTRY = "munnangihari"
-        EC2_HOST = "ubuntu@16.171.0.212"
+        # Use the new EC2 public IP
+        EC2_HOST = "ubuntu@16.16.213.30"
+        # Optional: keep private IP if you plan to run inside VPC
+        EC2_PRIVATE = "ubuntu@10.0.1.191"
     }
     stages {
         stage('Unit Tests') {
             steps {
-                sh 'docker run --rm -v $PWD:/app -w /app python:3.11-alpine sh -c "pip install -r application/requirements.txt pytest httpx && pytest tests/ -v"'
+                sh 'docker run --rm -v $PWD:/app -w /app python:3.11-slim sh -c "pip install -r application/requirements.txt pytest httpx && pytest tests/ -v"'
             }
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh 'docker build -t $DOCKER_IMAGE:$BUILD_NUMBER -t $DOCKER_IMAGE:latest .'
             }
         }
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    sh 'docker tag $DOCKER_IMAGE:latest $DOCKER_REGISTRY/$DOCKER_IMAGE:latest'
-                    sh 'docker push $DOCKER_REGISTRY/$DOCKER_IMAGE:latest'
+                withCredentials([usernamePassword(credentialsId: "dockerhub-creds", usernameVariable: "DOCKER_USER", passwordVariable: "DOCKER_PASS")]) {
+                    sh '''
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                        docker tag $DOCKER_IMAGE:latest $DOCKER_REGISTRY/$DOCKER_IMAGE:latest
+                        docker push $DOCKER_REGISTRY/$DOCKER_IMAGE:latest
+                        docker logout
+                    '''
                 }
             }
         }
         stage('Deploy to EC2') {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
-                    sh 'ssh -o StrictHostKeyChecking=no $EC2_HOST "bash -s" < scripts/deploy.sh'
+                    sh '''
+                        scp -o StrictHostKeyChecking=no scripts/deploy.sh $EC2_HOST:~/devops-week1-project/scripts/
+                        ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/deploy.sh && ~/devops-week1-project/scripts/deploy.sh"
+                    '''
                 }
             }
         }
@@ -36,7 +45,6 @@ pipeline {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no $EC2_HOST "mkdir -p ~/devops-week1-project/scripts"
                         scp -o StrictHostKeyChecking=no scripts/health-check.sh $EC2_HOST:~/devops-week1-project/scripts/
                         ssh -o StrictHostKeyChecking=no $EC2_HOST "chmod +x ~/devops-week1-project/scripts/health-check.sh && PORT=8000 ~/devops-week1-project/scripts/health-check.sh"
                     '''
@@ -44,4 +52,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            cleanWs()
+        }
+    }
 }
+
