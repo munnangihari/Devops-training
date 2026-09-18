@@ -59,7 +59,6 @@ pipeline {
                     sh '''
                         kubectl apply -f namespace.yaml
                         kubectl apply -f configmap.yaml
-                        kubectl apply -f secret.yaml
                         kubectl set image deployment/blackroth-app blackroth-app=${IMAGE_NAME}:${IMAGE_TAG} -n blackroth-capstone
                         kubectl rollout status deployment/blackroth-app -n blackroth-capstone
                     '''
