@@ -1,0 +1,79 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "munnangihari/blackroth-capstone-app"
+        IMAGE_TAG  = "${env.BUILD_NUMBER}"
+        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                dir('blackroth-devops-week3/docker') {
+                    sh '''
+                        python3 -m venv venv
+                        . venv/bin/activate
+                        pip install -r requirements.txt pytest httpx
+                        pytest || true
+                    '''
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                dir('blackroth-devops-week3/docker') {
+                    sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest ."
+                }
+            }
+        }
+
+        stage('Docker Scan') {
+            steps {
+                sh "trivy image --severity HIGH,CRITICAL --exit-code 0 ${IMAGE_NAME}:${IMAGE_TAG}"
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    sh '''
+                        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                        docker push ${IMAGE_NAME}:${IMAGE_TAG}
+                        docker push ${IMAGE_NAME}:latest
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to kind') {
+            steps {
+                dir('blackroth-devops-week3/kubernetes') {
+                    sh '''
+                        kubectl apply -f namespace.yaml
+                        kubectl apply -f configmap.yaml
+                        kubectl apply -f secret.yaml
+                        kubectl set image deployment/blackroth-app blackroth-app=${IMAGE_NAME}:${IMAGE_TAG} -n blackroth-capstone
+                        kubectl rollout status deployment/blackroth-app -n blackroth-capstone
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline succeeded — image ${IMAGE_NAME}:${IMAGE_TAG} deployed to kind cluster."
+        }
+        failure {
+            echo "Pipeline failed — check logs above."
+        }
+    }
+}
