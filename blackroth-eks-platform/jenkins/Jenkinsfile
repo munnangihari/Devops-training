@@ -1,0 +1,58 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION = "us-east-1"
+        ECR_REPO   = "blackroth/hrms"
+        IMAGE_TAG  = "v${BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/your-org/blackroth-eks-platform.git'
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                sh 'pytest || exit 1'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t $ECR_REPO:$IMAGE_TAG .'
+            }
+        }
+
+        stage('Trivy Scan') {
+            steps {
+                sh 'trivy image --exit-code 1 $ECR_REPO:$IMAGE_TAG || exit 1'
+            }
+        }
+
+        stage('Push to ECR') {
+            steps {
+                sh '''
+                aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin <account_id>.dkr.ecr.$AWS_REGION.amazonaws.com
+                docker tag $ECR_REPO:$IMAGE_TAG <account_id>.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:$IMAGE_TAG
+                docker push <account_id>.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO:$IMAGE_TAG
+                '''
+            }
+        }
+
+        stage('Helm Deploy to EKS') {
+            steps {
+                sh '''
+                aws eks --region $AWS_REGION update-kubeconfig --name blackroth-eks
+                helm upgrade --install hrms helm/hrms \
+                  --namespace devops-training \
+                  --set image.repository=<account_id>.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPO \
+                  --set image.tag=$IMAGE_TAG
+                '''
+            }
+        }
+    }
+}
+
