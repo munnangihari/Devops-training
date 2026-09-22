@@ -24,7 +24,7 @@ pipeline {
                 python3 -m venv venv
                 . venv/bin/activate
                 pip install --upgrade pip
-                pip install -r ${WORKSPACE}/requirements.txt
+                pip install -r blackroth-eks-platform/requirements.txt
                 pytest || true
                 '''
             }
