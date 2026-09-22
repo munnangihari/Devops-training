@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-org/blackroth-eks-platform.git'
+                git branch: 'main', url: 'https://github.com/munnangihari/Devops-training.git'
+
             }
         }
 
