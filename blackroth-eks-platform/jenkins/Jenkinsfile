@@ -18,9 +18,12 @@ pipeline {
         stage('Unit Tests') {
     steps {
         sh '''
-        pip3 install -r application/requirements.txt || true
-        pip3 install pytest
-        pytest || exit 1
+        python3 -m venv venv
+        . venv/bin/activate
+        pip install --upgrade pip
+        pip install -r application/requirements.txt
+        pip install pytest
+        pytest
         '''
     }
 }
