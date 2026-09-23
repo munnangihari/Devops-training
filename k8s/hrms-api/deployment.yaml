@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: hrms-api
-        image: munnangihari/devops-week1-app:v1.0
+        image: munnangihari/devops-week1-app:v2.0
         ports:
         - containerPort: 8080
 
