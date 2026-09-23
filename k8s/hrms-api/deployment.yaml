@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrms-api
+  namespace: hrms-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hrms-api
+  template:
+    metadata:
+      labels:
+        app: hrms-api
+    spec:
+      containers:
+      - name: hrms-api
+        image: munnangihari/hrms-api:latest
+        ports:
+        - containerPort: 8080
+
