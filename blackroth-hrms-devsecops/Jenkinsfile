@@ -1,36 +1,50 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps { checkout scm }
-    }
-    stage('Build') {
-      steps { sh 'npm install --prefix backend' }
-    }
-    stage('Test') {
-      steps { sh 'npm test --prefix backend' }
-    }
-    stage('SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('SonarQubeServer') {
-          sh '''
-            sonar-scanner \
-              -Dsonar.projectKey=devops-training \
-              -Dsonar.sources=backend \
-              -Dsonar.host.url=http://localhost:9000 \
-              -Dsonar.login=$SONARQUBE_TOKEN
-          '''
-        }
-      }
-    }
-    stage('Docker Build & Push') {
-      steps {
-        script {
-          docker.build("blackroth-hrms-backend:${BUILD_NUMBER}")
-          // Add docker push to registry here
-        }
-      }
-    }
-  }
-}
+    agent any
 
+    environment {
+        SCANNER_HOME = tool 'sonar-scanner'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                dir('blackroth-hrms-devsecops/backend') {
+                    sh '''
+                        npm ci
+                        npx jest --coverage --coverageReporters=lcov
+                    '''
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                dir('blackroth-hrms-devsecops') {
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${SCANNER_HOME}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+        stage('Continue') {
+            steps {
+                echo 'Quality Gate passed, continuing pipeline'
+            }
+        }
+    }
+}

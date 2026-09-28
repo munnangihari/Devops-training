@@ -3,3 +3,8 @@
 *.tmp
 .DS_Store
 node_modules/*.pem
+*.pem
+*.zip
+*.tgz
+node_modules/
+coverage/
