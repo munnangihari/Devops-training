@@ -1,0 +1,7 @@
+flask
+pytest
+requests
+boto3
+fastapi
+httpx
+
