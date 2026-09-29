@@ -7,9 +7,7 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            steps { checkout scm }
         }
 
         stage('Unit Tests') {
@@ -41,10 +39,45 @@ pipeline {
             }
         }
 
+        stage('Docker Build') {
+            steps {
+                dir('blackroth-hrms-devsecops/backend') {
+                    sh 'docker build -t blackroth/hrms-api:$BUILD_NUMBER .'
+                }
+            }
+        }
+
+stage('Trivy Scan') {
+    steps {
+        sh '''
+        trivy image \
+          --scanners vuln \
+          --severity HIGH,CRITICAL \
+          --exit-code 1 \
+          --format json \
+          -o blackroth-hrms-devsecops/security/trivy-report.json \
+          blackroth/hrms-api:$BUILD_NUMBER
+        '''
+    }
+}
+
+        stage('Generate SBOM') {
+            steps {
+                sh '''
+                trivy image \
+                  --scanners vuln \
+                  --format cyclonedx \
+                  -o blackroth-hrms-devsecops/security/sbom.json \
+                  blackroth/hrms-api:$BUILD_NUMBER
+                '''
+            }
+        }
+
         stage('Continue') {
             steps {
-                echo 'Quality Gate passed, continuing pipeline'
+                echo 'Quality Gate and Trivy checks passed, continuing pipeline'
             }
         }
     }
 }
+
