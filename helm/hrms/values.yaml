@@ -1,0 +1,32 @@
+replicaCount: 1
+
+image:
+  repository: munnangihari/hrms-api
+  tag: latest
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
+  host: ""
+  path: /
+
+networkPolicy:
+  ingress: []
+config:
+  APP_ENV: default
+  BASE_URL: http://localhost
+redis:
+  enabled: true
+postgresql:
+  enabled: false
+

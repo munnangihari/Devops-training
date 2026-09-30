@@ -1,0 +1,20 @@
+replicaCount: 1
+image:
+  repository: munnangihari/hrms-api
+  tag: dev
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+config:
+  APP_ENV: dev
+  BASE_URL: http://hrms-dev.local
+networkPolicy:
+ingress:
+  enabled: true
+  host: hrms-dev.local
+  path: /
+
