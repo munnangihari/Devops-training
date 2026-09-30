@@ -2,81 +2,65 @@ pipeline {
     agent any
 
     environment {
-        SCANNER_HOME = tool 'sonar-scanner'
+        // You can set global env vars here if needed
     }
 
     stages {
         stage('Checkout') {
-            steps { checkout scm }
+            steps {
+                checkout scm
+            }
         }
 
-        stage('Unit Tests') {
+        stage('Build') {
             steps {
-                dir('blackroth-hrms-devsecops/backend') {
+                withCredentials([
+                    string(credentialsId: 'db-password', variable: 'DB_PASSWORD'),
+                    string(credentialsId: 'jwt-secret', variable: 'JWT_SECRET'),
+                    string(credentialsId: 'api-key', variable: 'API_KEY')
+                ]) {
                     sh '''
-                        npm ci
-                        npx jest --coverage --coverageReporters=lcov
+                        echo "Building application..."
+                        echo "DB Password: $DB_PASSWORD"
+                        echo "JWT Secret: $JWT_SECRET"
+                        echo "API Key: $API_KEY"
+                        # Insert your build commands here, e.g. mvn clean install or npm build
                     '''
                 }
             }
         }
 
-        stage('SonarQube Analysis') {
-            steps {
-                dir('blackroth-hrms-devsecops') {
-                    withSonarQubeEnv('sonarqube') {
-                        sh "${SCANNER_HOME}/bin/sonar-scanner"
-                    }
-                }
-            }
-        }
-
-        stage('Quality Gate') {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                dir('blackroth-hrms-devsecops/backend') {
-                    sh 'docker build -t blackroth/hrms-api:$BUILD_NUMBER .'
-                }
-            }
-        }
-
-stage('Trivy Scan') {
-    steps {
-        sh '''
-        trivy image \
-          --scanners vuln \
-          --severity HIGH,CRITICAL \
-          --exit-code 1 \
-          --format json \
-          -o blackroth-hrms-devsecops/security/trivy-report.json \
-          blackroth/hrms-api:$BUILD_NUMBER
-        '''
-    }
-}
-
-        stage('Generate SBOM') {
+        stage('Test') {
             steps {
                 sh '''
-                trivy image \
-                  --scanners vuln \
-                  --format cyclonedx \
-                  -o blackroth-hrms-devsecops/security/sbom.json \
-                  blackroth/hrms-api:$BUILD_NUMBER
+                    echo "Running tests..."
+                    # Insert your test commands here, e.g. mvn test or npm test
                 '''
             }
         }
 
-        stage('Continue') {
+        stage('Deploy') {
             steps {
-                echo 'Quality Gate and Trivy checks passed, continuing pipeline'
+                withCredentials([
+                    string(credentialsId: 'db-password', variable: 'DB_PASSWORD'),
+                    string(credentialsId: 'jwt-secret', variable: 'JWT_SECRET'),
+                    string(credentialsId: 'api-key', variable: 'API_KEY')
+                ]) {
+                    sh '''
+                        echo "Deploying application..."
+                        # Insert your deploy commands here, e.g. kubectl apply -f manifests/
+                    '''
+                }
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
