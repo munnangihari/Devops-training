@@ -1,0 +1,12 @@
+replicaCount: 1
+image:
+  repository: <your-ecr-repo>/hrms
+  tag: dev
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
