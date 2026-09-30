@@ -1,10 +1,28 @@
-# Ignore system files
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.terraform.lock.hcl
+
+# Kubernetes
+*.yaml~
+*.yml~
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Docker
 *.log
 *.tmp
+
+# OS/system files
 .DS_Store
-node_modules/*.pem
-*.pem
+Thumbs.db
+
+# Tools & archives
+*.tar.gz
 *.zip
 *.tgz
-node_modules/
-coverage/
+
