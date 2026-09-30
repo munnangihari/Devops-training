@@ -1,0 +1,20 @@
+# allow-api-to-db.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-api-to-db
+  namespace: rbac-demo
+spec:
+  podSelector:
+    matchLabels:
+      app: hrms-db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: hrms-api
+    ports:
+    - protocol: TCP
+      port: 5432

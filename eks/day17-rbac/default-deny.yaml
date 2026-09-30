@@ -1,0 +1,10 @@
+# default-deny.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+  namespace: rbac-demo
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
