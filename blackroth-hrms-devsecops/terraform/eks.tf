@@ -1,0 +1,13 @@
+module "eks" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "21.26.0"
+
+  cluster_name    = "hrms-eks"
+  cluster_version = "1.29"
+
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.public_subnets
+
+  cluster_endpoint_public_access = true
+}
+

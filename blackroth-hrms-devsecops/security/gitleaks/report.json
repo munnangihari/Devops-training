@@ -1,0 +1,23 @@
+[
+ {
+  "RuleID": "sonar-api-token",
+  "Description": "Uncovered a Sonar API token, potentially compromising software vulnerability scanning and code security.",
+  "StartLine": 5,
+  "EndLine": 5,
+  "StartColumn": 2,
+  "EndColumn": 57,
+  "Match": "sonar.login=squ_7ab1bbfe0ab338cea6afc95cfe757e4d7335e4cc",
+  "Secret": "squ_7ab1bbfe0ab338cea6afc95cfe757e4d7335e4cc",
+  "File": "blackroth-hrms-devsecops/sonar-project.properties",
+  "SymlinkFile": "",
+  "Commit": "253c4e2244baf225baf7dd1c430e7802679c7cd1",
+  "Link": "https://github.com/munnangihari/Devops-training/blob/253c4e2244baf225baf7dd1c430e7802679c7cd1/blackroth-hrms-devsecops/sonar-project.properties#L5",
+  "Entropy": 3.9428623,
+  "Author": "Hari",
+  "Email": "harivardhanmunnangi2003@gmail.com",
+  "Date": "2026-09-28T09:00:50Z",
+  "Message": "Fix HRMS repo structure - clean folder",
+  "Tags": [],
+  "Fingerprint": "253c4e2244baf225baf7dd1c430e7802679c7cd1:blackroth-hrms-devsecops/sonar-project.properties:sonar-api-token:5"
+ }
+]

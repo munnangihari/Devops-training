@@ -1,66 +1,29 @@
 pipeline {
     agent any
-
-    environment {
-        // You can set global env vars here if needed
-    }
-
     stages {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            steps { checkout scm }
         }
-
         stage('Build') {
             steps {
-                withCredentials([
-                    string(credentialsId: 'db-password', variable: 'DB_PASSWORD'),
-                    string(credentialsId: 'jwt-secret', variable: 'JWT_SECRET'),
-                    string(credentialsId: 'api-key', variable: 'API_KEY')
-                ]) {
+                sh 'docker build -t hrms-app:latest .'
+            }
+        }
+        stage('Push') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKER_PASS')]) {
                     sh '''
-                        echo "Building application..."
-                        echo "DB Password: $DB_PASSWORD"
-                        echo "JWT Secret: $JWT_SECRET"
-                        echo "API Key: $API_KEY"
-                        # Insert your build commands here, e.g. mvn clean install or npm build
+                        echo $DOCKER_PASS | docker login -u myuser --password-stdin
+                        docker tag hrms-app:latest myuser/hrms-app:latest
+                        docker push myuser/hrms-app:latest
                     '''
                 }
             }
         }
-
-        stage('Test') {
-            steps {
-                sh '''
-                    echo "Running tests..."
-                    # Insert your test commands here, e.g. mvn test or npm test
-                '''
-            }
-        }
-
         stage('Deploy') {
             steps {
-                withCredentials([
-                    string(credentialsId: 'db-password', variable: 'DB_PASSWORD'),
-                    string(credentialsId: 'jwt-secret', variable: 'JWT_SECRET'),
-                    string(credentialsId: 'api-key', variable: 'API_KEY')
-                ]) {
-                    sh '''
-                        echo "Deploying application..."
-                        # Insert your deploy commands here, e.g. kubectl apply -f manifests/
-                    '''
-                }
+                sh 'kubectl apply -f k8s-secrets/deployment.yaml'
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
         }
     }
 }
