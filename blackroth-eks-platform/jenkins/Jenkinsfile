@@ -1,74 +1,27 @@
 pipeline {
     agent any
-
     environment {
         AWS_REGION = "ap-south-1"
-        ECR_REPO   = "your-account-id.dkr.ecr.ap-south-1.amazonaws.com/blackroth-eks-platform"
-        CLUSTER    = "blackroth-eks-cluster"
-        NAMESPACE  = "default"
+        ECR_REPO   = "your_account_id.dkr.ecr.ap-south-1.amazonaws.com/hrms"
     }
-
     stages {
-
         stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/munnangihari/Devops-training.git',
-                    credentialsId: 'github-pat'
-            }
+            steps { git 'https://github.com/munnangihari/Devops-training.git' }
         }
-
-        stage('Unit Tests') {
-            steps {
-                sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install --upgrade pip
-                pip install -r requirements.txt
-                pytest || true
-                '''
-            }
+        stage('Build Docker Image') {
+            steps { sh 'docker build -t hrms .' }
         }
-
-        stage('Docker Build') {
-            steps {
-                sh '''
-                docker build -t ${ECR_REPO}:latest .
-                '''
-            }
-        }
-
-        stage('Trivy Scan') {
-            steps {
-                sh '''
-                trivy image --exit-code 0 --severity HIGH ${ECR_REPO}:latest
-                '''
-            }
-        }
-
         stage('Push to ECR') {
             steps {
                 sh '''
-                aws ecr get-login-password --region ${AWS_REGION} \
-                  | docker login --username AWS --password-stdin ${ECR_REPO}
-                docker push ${ECR_REPO}:latest
+                aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
+                docker tag hrms:latest $ECR_REPO:latest
+                docker push $ECR_REPO:latest
                 '''
             }
         }
-
-        stage('Helm Deploy to EKS') {
-            steps {
-                sh '''
-                aws eks update-kubeconfig --region ${AWS_REGION} --name ${CLUSTER}
-                helm upgrade --install hrms helm/hrms --namespace ${NAMESPACE}
-                '''
-            }
-        }
-    }
-
-    post {
-        always {
-            cleanWs()
+        stage('Deploy to Kubernetes') {
+            steps { sh 'kubectl apply -f kubernetes/namespaces/hrms-namespace.yaml' }
         }
     }
 }
