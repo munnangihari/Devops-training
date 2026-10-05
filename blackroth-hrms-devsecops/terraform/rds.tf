@@ -7,5 +7,6 @@ resource "aws_db_instance" "hrms_db" {
   username             = "admin"
   password             = "MyPassword123"
   skip_final_snapshot  = true
+  vpc_security_group_ids = [] # add SG later
 }
 
