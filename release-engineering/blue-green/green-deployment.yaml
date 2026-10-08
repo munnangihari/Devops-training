@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrms-green
+  labels:
+    app: hrms
+    version: green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hrms
+      version: green
+  template:
+    metadata:
+      labels:
+        app: hrms
+        version: green
+    spec:
+      containers:
+        - name: hrms
+          image: nginx:1.26
+          ports:
+            - containerPort: 80
+          env:
+            - name: APP_VERSION
+              value: "v1.1"

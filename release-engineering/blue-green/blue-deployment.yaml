@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrms-blue
+  labels:
+    app: hrms
+    version: blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hrms
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: hrms
+        version: blue
+    spec:
+      containers:
+        - name: hrms
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+          env:
+            - name: APP_VERSION
+              value: "v1.0"

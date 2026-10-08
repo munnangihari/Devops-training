@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hrms-production
+spec:
+  selector:
+    app: hrms
+    version: v1.0
+  ports:
+    - port: 80
+      targetPort: 80
