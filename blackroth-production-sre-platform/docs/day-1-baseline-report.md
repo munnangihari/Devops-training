@@ -135,3 +135,18 @@ control, monitoring, security, and recovery readiness.
 
 **Documentation status:** Complete after review and commit.  
 **Operational remediation status:** Pending.
+
+## 10. Task 1.5 — Evidence Collection
+
+Kubernetes diagnostic snapshots are stored in `docs/evidence/`.
+The evidence index identifies the commands and output files used
+to record the cluster baseline.
+
+The latest capture confirmed that no HPA resources were deployed
+and the Resource Metrics API was unavailable. The node reported
+Ready during collection.
+
+**Evidence index:** `docs/evidence/README.md`
+
+**Follow-up:** Investigate the metrics provider and validate HPA
+behavior after the required metrics infrastructure is available.
