@@ -1,0 +1,38 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: hrms-slo-alerts
+  namespace: monitoring
+  labels:
+    release: prometheus
+spec:
+  groups:
+    - name: hrms-slo-alerts
+      interval: 30s
+      rules:
+        - alert: HRMSAvailabilityFailure
+          expr: probe_success{service="hrms"} == 0
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: "HRMS availability probe failed"
+            description: "HRMS HTTP availability probe has failed for 2 minutes."
+
+        - alert: HRMSLatencySLOBreach
+          expr: probe_duration_seconds{service="hrms"} > 0.5
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "HRMS response time exceeds 500ms"
+            description: "HRMS probe latency has exceeded 500ms for 5 minutes."
+
+        - alert: PrometheusTargetDown
+          expr: up == 0
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Prometheus scrape target is down"
+            description: "A monitoring target has been unavailable for 5 minutes."
