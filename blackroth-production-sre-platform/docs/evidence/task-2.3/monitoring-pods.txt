@@ -1,0 +1,7 @@
+NAME                                                     READY   STATUS    RESTARTS       AGE    IP            NODE                               NOMINATED NODE   READINESS GATES
+alertmanager-prometheus-kube-prometheus-alertmanager-0   2/2     Running   6 (17m ago)    4d1h   10.244.0.35   blackroth-capstone-control-plane   <none>           <none>
+prometheus-grafana-9fcf448c4-v56qm                       3/3     Running   10 (17m ago)   4d1h   10.244.0.30   blackroth-capstone-control-plane   <none>           <none>
+prometheus-kube-prometheus-operator-6d977bff8d-dqmps     1/1     Running   18 (17m ago)   4d1h   10.244.0.29   blackroth-capstone-control-plane   <none>           <none>
+prometheus-kube-state-metrics-dd5dbb5f8-9bl6d            1/1     Running   16 (17m ago)   4d1h   10.244.0.34   blackroth-capstone-control-plane   <none>           <none>
+prometheus-prometheus-kube-prometheus-prometheus-0       2/2     Running   10 (17m ago)   4d1h   10.244.0.31   blackroth-capstone-control-plane   <none>           <none>
+prometheus-prometheus-node-exporter-796pq                1/1     Running   13 (17m ago)   4d1h   172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
