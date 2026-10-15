@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  message: backup-restore-success
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-10-15T10:46:40Z"
+  name: recovery-test
+  namespace: dr-test
+  resourceVersion: "449933"
+  uid: 13524c7c-77f6-453f-b8c9-ff29daa22163

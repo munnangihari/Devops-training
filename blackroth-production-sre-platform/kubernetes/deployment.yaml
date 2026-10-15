@@ -1,0 +1,57 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrms-api
+  labels:
+    app: hrms-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hrms-api
+  template:
+    metadata:
+      labels:
+        app: hrms-api
+    spec:
+      containers:
+        - name: hrms-api
+          image: nginx:1.28
+          ports:
+            - name: http
+              containerPort: 80
+
+          # Startup probe
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 5
+            failureThreshold: 30
+
+          # Readiness probe
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          # Liveness probe
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+
+          # CPU and memory resources
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+
