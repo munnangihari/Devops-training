@@ -1,0 +1,22 @@
+Day 1 — Pending Validation Status
+
+1. NetworkPolicy enforcement:
+   Status: BLOCKED.
+   The existing Kind CNI did not enforce the test policy.
+   A separate validation cluster failed to initialize.
+   Retest using a dedicated cluster with a policy-enforcing CNI.
+
+2. Persistent volume recovery:
+   Status: PASS.
+   A file-level backup was restored successfully to a newly provisioned PVC.
+   Evidence: persistent-volume-backup.tar
+   Limitation: This does not validate database backups or volume snapshots.
+
+3. Database recovery:
+   Status: NOT TESTED.
+   No database recovery test has been verified.
+   Validate database backup and restore when a suitable database environment is available.
+
+4. Pod restart investigation:
+   Status: INVESTIGATED; ROOT CAUSE UNCONFIRMED.
+   Existing evidence records the observed restart and probe failures.
