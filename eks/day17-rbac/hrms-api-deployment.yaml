@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hrms-api
+  namespace: rbac-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hrms-api
+  template:
+    metadata:
+      labels:
+        app: hrms-api
+    spec:
+      serviceAccountName: hrms-api
+      containers:
+      - name: hrms-api
+        image: nginx:alpine   # placeholder image for this exercise
+        envFrom:
+        - configMapRef:
+            name: hrms-app-config
+        - secretRef:
+            name: hrms-app-secrets

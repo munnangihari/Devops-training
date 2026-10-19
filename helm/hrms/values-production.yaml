@@ -1,0 +1,20 @@
+replicaCount: 3
+image:
+  repository: munnangihari/hrms-api
+  tag: prod
+resources:
+  limits:
+    cpu: 1
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi
+config:
+  APP_ENV: production
+  BASE_URL: https://hrms.company.com
+networkPolicy:
+  ingress:
+  enabled: true
+  host: hrms.company.com
+  path: /
+

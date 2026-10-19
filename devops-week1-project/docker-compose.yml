@@ -1,0 +1,9 @@
+
+services:
+  app:
+    build: .
+    image: munnangihari/devops-week1-app:latest
+    container_name: devops-week1-app
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

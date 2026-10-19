@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    environment {
+        AWS_REGION = "ap-south-1"
+        ECR_REPO   = "your_account_id.dkr.ecr.ap-south-1.amazonaws.com/hrms"
+    }
+    stages {
+        stage('Checkout') {
+            steps { git 'https://github.com/munnangihari/Devops-training.git' }
+        }
+        stage('Build Docker Image') {
+            steps { sh 'docker build -t hrms .' }
+        }
+        stage('Push to ECR') {
+            steps {
+                sh '''
+                aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
+                docker tag hrms:latest $ECR_REPO:latest
+                docker push $ECR_REPO:latest
+                '''
+            }
+        }
+        stage('Deploy to Kubernetes') {
+            steps { sh 'kubectl apply -f kubernetes/namespaces/hrms-namespace.yaml' }
+        }
+    }
+}
+

@@ -1,0 +1,12 @@
+replicaCount: 2
+image:
+  repository: <your-ecr-repo>/hrms
+  tag: staging
+resources:
+  limits:
+    cpu: 300m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+

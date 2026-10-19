@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/munnangihari/devops-training.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh '''
+                    python3 -m venv testenv
+                    . testenv/bin/activate
+                    pip install -r jenkins-project/application/requirements.txt
+                    pip install pytest httpx2
+                '''
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh '''
+                    . testenv/bin/activate
+                    pytest jenkins-project/application/test_app.py --junitxml=test-results.xml
+                '''
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh '''
+                    docker build -t python-application:${BUILD_NUMBER} -f jenkins-project/Dockerfile jenkins-project/application
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            junit 'test-results.xml'
+        }
+    }
+}

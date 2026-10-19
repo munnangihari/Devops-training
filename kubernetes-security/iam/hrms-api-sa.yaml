@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hrms-api-sa
+  namespace: hrms
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::091199627403:role/HRMSSecretsRole

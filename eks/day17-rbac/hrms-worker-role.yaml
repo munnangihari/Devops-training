@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: hrms-worker-role
+  namespace: rbac-demo
+rules:
+- apiGroups: [""]
+  resources: ["configmaps", "secrets"]
+  verbs: ["get", "list"]
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["batch"]
+  resources: ["jobs"]
+  verbs: ["get", "list", "create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: hrms-worker-binding
+  namespace: rbac-demo
+subjects:
+- kind: ServiceAccount
+  name: hrms-worker
+  namespace: rbac-demo
+roleRef:
+  kind: Role
+  name: hrms-worker-role
+  apiGroup: rbac.authorization.k8s.io

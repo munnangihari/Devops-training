@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  message: backup-restore-success
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"message":"backup-restore-success"},"kind":"ConfigMap","metadata":{"annotations":{},"creationTimestamp":"2026-10-15T10:46:40Z","name":"recovery-test","namespace":"dr-test","resourceVersion":"449933","uid":"13524c7c-77f6-453f-b8c9-ff29daa22163"}}
+  creationTimestamp: "2026-10-15T10:47:01Z"
+  name: recovery-test
+  namespace: dr-test
+  resourceVersion: "449982"
+  uid: cd251405-9a13-4fad-a800-032bee75dd30

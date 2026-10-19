@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hrms-app-config
+  namespace: rbac-demo
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "INFO"
+  DB_PORT: "5432"
+  REDIS_PORT: "6379"

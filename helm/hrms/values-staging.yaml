@@ -1,0 +1,21 @@
+replicaCount: 2
+image:
+  repository: munnangihari/hrms-api
+  tag: staging
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+config:
+  APP_ENV: staging
+  BASE_URL: http://hrms-staging.local
+networkPolicy:
+  ingress:
+  enabled: true
+  host: hrms-staging.local
+  path: /
+
+

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hrms-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/munnangihari/devops-training.git
+    targetRevision: HEAD
+    path: k8s/hrms-api 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hrms-api
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

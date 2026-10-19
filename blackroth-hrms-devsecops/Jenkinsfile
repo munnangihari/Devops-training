@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps { checkout scm }
+        }
+        stage('Build') {
+            steps {
+                sh 'docker build -t hrms-app:latest .'
+            }
+        }
+        stage('Push') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'DOCKER_PASS')]) {
+                    sh '''
+                        echo $DOCKER_PASS | docker login -u myuser --password-stdin
+                        docker tag hrms-app:latest myuser/hrms-app:latest
+                        docker push myuser/hrms-app:latest
+                    '''
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'kubectl apply -f k8s-secrets/deployment.yaml'
+            }
+        }
+    }
+}
+

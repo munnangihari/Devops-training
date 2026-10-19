@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blackroth-service
+  namespace: blackroth-capstone
+spec:
+  type: ClusterIP
+  selector:
+    app: blackroth-app
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP

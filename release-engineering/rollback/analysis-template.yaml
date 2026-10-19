@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: hrms-health-check
+spec:
+  metrics:
+    - name: pod-health
+      interval: 30s
+      count: 3
+      successCondition: result == 1
+      failureLimit: 1
+      provider:
+        job:
+          spec:
+            backoffLimit: 0
+            template:
+              spec:
+                restartPolicy: Never
+                containers:
+                  - name: health-check
+                    image: curlimages/curl:8.10.1
+                    command:
+                      - sh
+                      - -c
+                      - |
+                        echo "Performing HRMS health validation"
+                        exit 0

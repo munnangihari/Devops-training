@@ -1,0 +1,13 @@
+NAMESPACE            NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+argo-rollouts        argo-rollouts                         1/1     1            1           4d1h
+blackroth-capstone   blackroth-app                         2/2     2            2           24d
+default              argo-rollouts                         0/1     1            0           4d1h
+default              hrms-blue                             3/3     3            3           4d1h
+default              hrms-green                            3/3     3            3           4d1h
+default              hrms-production                       3/3     3            3           3d23h
+default              hrms-production-v11                   3/3     3            3           3d23h
+kube-system          coredns                               2/2     2            2           24d
+local-path-storage   local-path-provisioner                1/1     1            1           24d
+monitoring           prometheus-grafana                    1/1     1            1           3d2h
+monitoring           prometheus-kube-prometheus-operator   1/1     1            1           3d2h
+monitoring           prometheus-kube-state-metrics         1/1     1            1           3d2h

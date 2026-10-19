@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Platform Baseline
 
 Day 1 SRE exercise: platform baseline and reliability review.
@@ -24,3 +25,6 @@ Kubernetes resource snapshots have been collected. The captured cluster showed
 the node Ready and listed pods Running/Ready, but workload restarts and warning
 events remain investigation items. SLO measurement, network-boundary testing,
 and backup/restore validation are not claimed complete until evidence is saved.
+=======
+# Jenkinsfile Project
+>>>>>>> origin/main
