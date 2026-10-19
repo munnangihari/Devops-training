@@ -1,0 +1,7 @@
+HRMS Availability Test
+2026-10-19T05:40:58+00:00
+Requests: 10
+Successful HTTP 200 responses: 10
+Success rate: 100%
+Response times: 9.6–63.6 ms
+Average response time: 18.4 ms

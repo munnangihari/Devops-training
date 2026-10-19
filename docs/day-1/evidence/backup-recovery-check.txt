@@ -1,0 +1,8 @@
+Backup and Recovery Assessment
+PVCs: None found
+PVs: None found
+Jobs/CronJobs: None found
+Velero/backup/restore pods: None found
+Result: No Kubernetes storage or backup/restore resources were detected during this check.
+Status: Backup and restore validation pending.
+RTO/RPO: Not tested.
