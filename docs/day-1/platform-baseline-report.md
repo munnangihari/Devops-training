@@ -40,3 +40,12 @@ The Day 1 baseline review and initial RBAC, networking, availability, and backup
 - Restart Investigation: Multiple pods restarted in the same time window. The cluster is currently healthy, but the exact root cause remains unconfirmed.
 - Backup and Restore: Successfully restored a Kubernetes ConfigMap from its saved YAML manifest. Database and persistent-volume recovery remain untested.
 - NetworkPolicy: Enforcement could not be demonstrated with the current Kind networking setup. Validation with a NetworkPolicy-capable CNI remains pending.
+
+## Database Recovery Validation
+
+- Status: PASS — logical backup and restore validated using PostgreSQL 16.
+- Evidence: `docs/day-1/evidence/postgres-recovery-backup.sql`
+- Test record was restored into a fresh database and verified.
+- Production failover and point-in-time recovery remain untested.
+- NetworkPolicy enforcement remains BLOCKED pending validation with a policy-enforcing CNI.
+- Pod restart investigation remains unresolved; the root cause was not confirmed.

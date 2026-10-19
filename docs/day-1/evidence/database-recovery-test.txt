@@ -1,0 +1,16 @@
+Database Recovery Test
+
+Database: PostgreSQL 16
+Namespace: db-recovery-test
+
+1. Deployed PostgreSQL with persistent storage.
+2. Created recovery_test table and inserted a test record.
+3. Created a logical SQL backup using pg_dump.
+4. Created a fresh database named recoverydb_restored.
+5. Restored the SQL backup using psql.
+6. Verified the recovered record:
+   1 | database-recovery-success
+
+Result: PASS
+Scope: Logical database backup and restore.
+Limitations: Production database failover and point-in-time recovery were not tested.
