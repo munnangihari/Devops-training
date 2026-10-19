@@ -34,3 +34,9 @@ Evidence: evidence/backup-recovery-check.txt
 
 ## Conclusion
 The Day 1 baseline review and initial RBAC, networking, availability, and backup-resource checks were documented. NetworkPolicy enforcement, root-cause confirmation, and backup/recovery validation remain outstanding.
+
+## Additional Validation Results
+
+- Restart Investigation: Multiple pods restarted in the same time window. The cluster is currently healthy, but the exact root cause remains unconfirmed.
+- Backup and Restore: Successfully restored a Kubernetes ConfigMap from its saved YAML manifest. Database and persistent-volume recovery remain untested.
+- NetworkPolicy: Enforcement could not be demonstrated with the current Kind networking setup. Validation with a NetworkPolicy-capable CNI remains pending.

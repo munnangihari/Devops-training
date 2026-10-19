@@ -1,0 +1,10 @@
+Backup and Restore Validation
+
+- Created a test namespace and ConfigMap.
+- Exported the ConfigMap manifest to a YAML backup file.
+- Deleted the original ConfigMap.
+- Restored the ConfigMap using the saved manifest.
+- Verified restored data: backup-restore-works.
+
+Result: PASS — Kubernetes ConfigMap manifest restore validated.
+Limitation: Database, persistent-volume, and full-cluster disaster recovery remain untested.

@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  message: backup-restore-works
+kind: ConfigMap
+metadata:
+  name: dr-sample
+  namespace: dr-test

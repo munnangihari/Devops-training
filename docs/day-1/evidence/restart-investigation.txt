@@ -1,0 +1,17 @@
+Restart and Probe Investigation
+Cluster: kind-blackroth-capstone
+
+Findings:
+- Multiple Kubernetes system and application pods restarted within the same time window.
+- Node status: Ready.
+- MemoryPressure: False.
+- DiskPressure: False.
+- PIDPressure: False.
+- Resource requests at inspection: CPU 19%, memory 22%.
+- Several readiness/liveness probe timeouts and connection failures were recorded.
+- The local-path provisioner previously reported an API server connection timeout and is currently Running.
+- HRMS API HPA scaled down from 8 to 3 replicas because metrics were below its target.
+- HRMS API pod last termination reason was Unknown; available logs show normal NGINX startup and shutdown.
+
+Conclusion:
+The correlated restarts and probe failures suggest a temporary cluster or node-runtime disruption. The exact root cause is not confirmed by the available evidence. Further investigation of Docker/WSL2 and Kubernetes runtime logs is required.

@@ -1,9 +1,10 @@
-NetworkPolicy Enforcement Test
-Cluster: kind-blackroth-capstone
-Network plugin: kindnet
-Target pod: np-target
-Deny policy: deny-target-ingress
-Allow policy: allow-test-client
-Result: Traffic remained accessible after applying the deny policy.
-Conclusion: NetworkPolicy enforcement is not demonstrated in the current cluster. The network plugin does not appear to enforce the tested policy.
-Status: Not passed
+NetworkPolicy Validation
+
+- CNI observed: kindnet.
+- Applied deny-target-ingress and allow-test-client policies.
+- Traffic to np-target remained accessible after applying the deny policy.
+- NetworkPolicy enforcement was not demonstrated in this cluster.
+- Likely limitation: the current Kind networking setup does not enforce NetworkPolicy.
+- Follow-up: validate using a NetworkPolicy-capable CNI such as Calico or Cilium in a separate test cluster.
+
+Result: BLOCKED — enforcement requires validation with a compatible CNI.
