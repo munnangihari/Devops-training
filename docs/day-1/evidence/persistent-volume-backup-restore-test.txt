@@ -1,0 +1,13 @@
+Persistent Volume Backup and Restore Test
+
+1. Created a 1Gi PVC using the standard StorageClass.
+2. Wrote test data to the mounted persistent volume.
+3. Created and verified persistent-volume-backup.tar.
+4. Deleted the original test pod and PVC.
+5. Created a new PVC and pod.
+6. Restored the backup archive to the new volume.
+7. Verified restored data: persistent-data-backup-test.
+
+Result: PASS
+Scope: File-level backup and restore validated using local-path storage.
+Limitation: Database recovery and full disaster recovery remain untested.
