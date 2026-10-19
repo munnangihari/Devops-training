@@ -58,3 +58,11 @@ The Day 1 baseline review and initial RBAC, networking, availability, and backup
 - **Resource checks:** No OOM-kill evidence was found in the inspected kernel logs. The Kind node container showed RestartCount=0 and OOMKilled=false.
 - **Assessment:** Control-plane and etcd latency likely contributed to the widespread timeouts. The original trigger is not confirmed.
 - **Follow-up:** Monitor etcd latency, API server responsiveness, resource utilization, probe failures, and restart counts.
+
+### NetworkPolicy Validation Status
+
+- **Status:** Blocked — enforcement not verified.
+- **Finding:** The existing Kind cluster uses the default networking setup, and actual NetworkPolicy enforcement has not been demonstrated.
+- **Test attempt:** A separate `np-validation` cluster failed during kubelet initialization with a health check timeout at `localhost:10248/healthz`.
+- **Cleanup:** Confirmed the failed test cluster was removed. The existing `blackroth-capstone` cluster remains available.
+- **Next action:** Retry in an isolated environment after resolving the kubelet initialization issue. Verify both allowed and denied traffic before marking enforcement as validated.
