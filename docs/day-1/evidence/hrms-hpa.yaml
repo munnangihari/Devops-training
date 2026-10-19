@@ -1,0 +1,53 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"autoscaling/v2","kind":"HorizontalPodAutoscaler","metadata":{"annotations":{},"name":"hrms-api","namespace":"default"},"spec":{"maxReplicas":10,"metrics":[{"resource":{"name":"cpu","target":{"averageUtilization":70,"type":"Utilization"}},"type":"Resource"}],"minReplicas":3,"scaleTargetRef":{"apiVersion":"apps/v1","kind":"Deployment","name":"hrms-api"}}}
+  creationTimestamp: "2026-10-16T04:24:18Z"
+  name: hrms-api
+  namespace: default
+  resourceVersion: "503485"
+  uid: 8d0b6493-ef88-4cd0-8de4-1e15596667ec
+spec:
+  maxReplicas: 10
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 70
+        type: Utilization
+    type: Resource
+  minReplicas: 3
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: hrms-api
+status:
+  conditions:
+  - lastTransitionTime: "2026-10-16T08:41:43Z"
+    message: recommended size matches current size
+    reason: ReadyForNewScale
+    status: "True"
+    type: AbleToScale
+  - lastTransitionTime: "2026-10-19T05:16:58Z"
+    message: the HPA was able to successfully calculate a replica count from cpu resource
+      utilization (percentage of request)
+    reason: ValidMetricFound
+    status: "True"
+    type: ScalingActive
+  - lastTransitionTime: "2026-10-19T05:20:48Z"
+    message: the desired replica count is less than the minimum replica count
+    reason: TooFewReplicas
+    status: "True"
+    type: ScalingLimited
+  currentMetrics:
+  - resource:
+      current:
+        averageUtilization: 1
+        averageValue: 1m
+      name: cpu
+    type: Resource
+  currentReplicas: 3
+  desiredReplicas: 3
+  lastScaleTime: "2026-10-19T05:20:48Z"

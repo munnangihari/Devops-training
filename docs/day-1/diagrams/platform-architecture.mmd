@@ -1,0 +1,22 @@
+flowchart TD
+    User[Users / Test Clients] --> Services[Kubernetes Services]
+    Services --> HRMS[HRMS API]
+    Services --> Blackroth[Blackroth Application]
+
+    subgraph Cluster[Kind: blackroth-capstone]
+        HRMS
+        Blackroth
+        ArgoCD[Argo CD]
+        Rollouts[Argo Rollouts]
+        DNS[CoreDNS]
+        Metrics[Metrics Server]
+        Storage[Local Path Provisioner]
+        Prometheus[Prometheus]
+        Grafana[Grafana]
+    end
+
+    Git[Git Repository] --> ArgoCD
+    ArgoCD --> Cluster
+    Rollouts --> HRMS
+    HRMS --> Metrics
+    Prometheus --> Grafana

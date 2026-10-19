@@ -1,0 +1,137 @@
+NAMESPACE            NAME                                                       READY   STATUS    RESTARTS         AGE     IP            NODE                               NOMINATED NODE   READINESS GATES
+argo-rollouts        argo-rollouts-65f48f6fd-4kvbh                              1/1     Running   63               10d     10.244.0.14   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-application-controller-0                            1/1     Running   13               5d      10.244.0.41   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-applicationset-controller-7856557ddf-726ff          1/1     Running   1 (2m17s ago)    3d      10.244.0.56   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-dex-server-5469cf855b-ndv4p                         1/1     Running   12 (2m17s ago)   5d      10.244.0.38   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-notifications-controller-86d679cc47-xw2dz           1/1     Running   18               5d      10.244.0.44   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-redis-9bcb659c7-kqjjc                               1/1     Running   12 (2m18s ago)   5d      10.244.0.42   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-repo-server-8658dc4c45-ncpd6                        1/1     Running   20 (2m17s ago)   5d      10.244.0.54   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-server-6964497574-zxvch                             1/1     Running   25               5d      10.244.0.51   blackroth-capstone-control-plane   <none>           <none>
+blackroth-capstone   blackroth-app-6966599f8c-p4p4k                             1/1     Running   62 (2m17s ago)   30d     10.244.0.5    blackroth-capstone-control-plane   <none>           <none>
+blackroth-capstone   blackroth-app-6966599f8c-tnqbn                             1/1     Running   67 (2m17s ago)   30d     10.244.0.7    blackroth-capstone-control-plane   <none>           <none>
+default              argo-rollouts-6ddcdd9ddb-pnsz8                             1/1     Running   43 (2m17s ago)   5d18h   10.244.0.29   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-application-controller-0                            1/1     Running   13               5d      10.244.0.39   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-applicationset-controller-f6d5945f7-m85j4           1/1     Running   1 (2m17s ago)    3d      10.244.0.47   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-dex-server-5469cf855b-6jv8f                         1/1     Running   14 (2m17s ago)   5d      10.244.0.52   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-notifications-controller-86d679cc47-bpc77           1/1     Running   25 (2m17s ago)   5d      10.244.0.45   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-redis-9bcb659c7-5ngds                               1/1     Running   12 (2m17s ago)   5d      10.244.0.59   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-repo-server-8658dc4c45-dwfsn                        1/1     Running   21 (2m17s ago)   5d      10.244.0.40   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-server-6964497574-88cr8                             0/1     Running   24 (2m17s ago)   5d      10.244.0.53   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-2m2vc                                  1/1     Running   1 (2m17s ago)    2d19h   10.244.0.55   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-55ggf                                  1/1     Running   1 (2m17s ago)    3d      10.244.0.50   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-6cgn2                                  1/1     Running   1 (2m17s ago)    3d      10.244.0.57   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-hzqc8                                  1/1     Running   1 (2m17s ago)    2d19h   10.244.0.43   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-j4bvd                                  1/1     Running   1 (2m17s ago)    2d19h   10.244.0.58   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-j8lzw                                  1/1     Running   1 (2m17s ago)    2d19h   10.244.0.49   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-vr8nx                                  1/1     Running   1 (2m17s ago)    2d19h   10.244.0.48   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-zdttk                                  1/1     Running   1 (2m17s ago)    3d      10.244.0.46   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-blue-859bbd9f6-2hsx8                                  1/1     Running   24 (2m17s ago)   10d     10.244.0.9    blackroth-capstone-control-plane   <none>           <none>
+default              hrms-blue-859bbd9f6-d5js2                                  1/1     Running   23 (2m17s ago)   10d     10.244.0.6    blackroth-capstone-control-plane   <none>           <none>
+default              hrms-blue-859bbd9f6-lm8bh                                  1/1     Running   24 (2m17s ago)   10d     10.244.0.8    blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-6krvt                               1/1     Running   24 (2m17s ago)   10d     10.244.0.13   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-d8bsr                               1/1     Running   23 (2m17s ago)   10d     10.244.0.17   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-d9nss                               1/1     Running   22 (2m18s ago)   10d     10.244.0.20   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-fnwp2                               1/1     Running   23 (2m17s ago)   10d     10.244.0.19   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-hlzfh                               1/1     Running   24 (2m17s ago)   10d     10.244.0.25   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-trzgm                               1/1     Running   22 (2m17s ago)   10d     10.244.0.22   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-vvncf                               1/1     Running   23 (2m17s ago)   10d     10.244.0.16   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-wxzgr                               1/1     Running   22 (2m17s ago)   10d     10.244.0.33   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-x4sqb                               1/1     Running   22 (2m18s ago)   10d     10.244.0.15   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-zpxwx                               1/1     Running   22 (2m17s ago)   10d     10.244.0.18   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-green-c5598c7d9-cqdfd                                 1/1     Running   24 (2m17s ago)   10d     10.244.0.11   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-green-c5598c7d9-wwlpg                                 1/1     Running   24 (2m17s ago)   10d     10.244.0.10   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-green-c5598c7d9-wxl6m                                 1/1     Running   24 (2m18s ago)   10d     10.244.0.12   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-5448646d55-f6dxq                           1/1     Running   22 (2m17s ago)   10d     10.244.0.31   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-5448646d55-tb9lz                           1/1     Running   22 (2m17s ago)   10d     10.244.0.21   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-5448646d55-x2rzb                           1/1     Running   22 (2m17s ago)   10d     10.244.0.23   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-v11-79ff9bfb9-8l54x                        1/1     Running   21 (2m17s ago)   10d     10.244.0.30   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-v11-79ff9bfb9-fzkgr                        1/1     Running   22 (2m18s ago)   10d     10.244.0.27   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-v11-79ff9bfb9-sp995                        1/1     Running   22 (2m18s ago)   10d     10.244.0.28   blackroth-capstone-control-plane   <none>           <none>
+kube-system          coredns-7db6d8ff4d-4mkhc                                   1/1     Running   37 (2m17s ago)   30d     10.244.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          coredns-7db6d8ff4d-86bt4                                   1/1     Running   37 (2m17s ago)   30d     10.244.0.4    blackroth-capstone-control-plane   <none>           <none>
+kube-system          etcd-blackroth-capstone-control-plane                      1/1     Running   40 (2m17s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kindnet-v65s8                                              1/1     Running   37 (2m17s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-apiserver-blackroth-capstone-control-plane            1/1     Running   40 (2m17s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-controller-manager-blackroth-capstone-control-plane   1/1     Running   73 (2m18s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-proxy-s2n69                                           1/1     Running   37 (2m17s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-scheduler-blackroth-capstone-control-plane            1/1     Running   74 (2m18s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          metrics-server-75778854d4-z4kk2                            0/1     Running   47 (2m17s ago)   5d18h   10.244.0.34   blackroth-capstone-control-plane   <none>           <none>
+local-path-storage   local-path-provisioner-988d74bc-45n8w                      1/1     Running   60 (75s ago)     30d     10.244.0.3    blackroth-capstone-control-plane   <none>           <none>
+monitoring           alertmanager-prometheus-kube-prometheus-alertmanager-0     2/2     Running   36 (2m17s ago)   9d      10.244.0.36   blackroth-capstone-control-plane   <none>           <none>
+monitoring           blackbox-exporter-84b84694d7-5mt4n                         1/1     Running   17 (2m17s ago)   5d21h   10.244.0.35   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-grafana-9fcf448c4-v56qm                         2/3     Running   70 (2m17s ago)   9d      10.244.0.26   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-kube-prometheus-operator-6d977bff8d-dqmps       0/1     Running   88 (19s ago)     9d      10.244.0.24   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-kube-state-metrics-dd5dbb5f8-9bl6d              1/1     Running   71 (2m17s ago)   9d      10.244.0.32   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-prometheus-kube-prometheus-prometheus-0         1/2     Running   58 (2m17s ago)   9d      10.244.0.37   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-prometheus-node-exporter-796pq                  1/1     Running   66 (2m17s ago)   9d      172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+NAMESPACE            NAME                                  READY   UP-TO-DATE   AVAILABLE   AGE
+argo-rollouts        argo-rollouts                         1/1     1            1           10d
+argocd               argocd-applicationset-controller      1/1     1            1           5d
+argocd               argocd-dex-server                     1/1     1            1           5d
+argocd               argocd-notifications-controller       1/1     1            1           5d
+argocd               argocd-redis                          1/1     1            1           5d
+argocd               argocd-repo-server                    1/1     1            1           5d
+argocd               argocd-server                         1/1     1            1           5d
+blackroth-capstone   blackroth-app                         2/2     2            2           30d
+default              argo-rollouts                         1/1     1            1           10d
+default              argocd-applicationset-controller      1/1     1            1           5d
+default              argocd-dex-server                     1/1     1            1           5d
+default              argocd-notifications-controller       1/1     1            1           5d
+default              argocd-redis                          1/1     1            1           5d
+default              argocd-repo-server                    1/1     1            1           5d
+default              argocd-server                         0/1     1            0           5d
+default              hrms-api                              8/8     8            8           3d23h
+default              hrms-blue                             3/3     3            3           10d
+default              hrms-green                            3/3     3            3           10d
+default              hrms-production                       3/3     3            3           10d
+default              hrms-production-v11                   3/3     3            3           10d
+kube-system          coredns                               2/2     2            2           30d
+kube-system          metrics-server                        0/1     1            0           5d18h
+local-path-storage   local-path-provisioner                1/1     1            1           30d
+monitoring           blackbox-exporter                     1/1     1            1           5d21h
+monitoring           prometheus-grafana                    0/1     1            0           9d
+monitoring           prometheus-kube-prometheus-operator   1/1     1            1           9d
+monitoring           prometheus-kube-state-metrics         1/1     1            1           9d
+NAMESPACE            NAME                                                 TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                        AGE
+argo-rollouts        argo-rollouts-metrics                                ClusterIP   10.96.135.64    <none>        8090/TCP                       10d
+argocd               argocd-applicationset-controller                     ClusterIP   10.96.93.65     <none>        7000/TCP,8080/TCP              5d
+argocd               argocd-dex-server                                    ClusterIP   10.96.60.22     <none>        5556/TCP,5557/TCP,5558/TCP     5d
+argocd               argocd-metrics                                       ClusterIP   10.96.230.146   <none>        8082/TCP                       5d
+argocd               argocd-notifications-controller-metrics              ClusterIP   10.96.142.252   <none>        9001/TCP                       5d
+argocd               argocd-redis                                         ClusterIP   10.96.35.105    <none>        6379/TCP                       5d
+argocd               argocd-repo-server                                   ClusterIP   10.96.112.198   <none>        8081/TCP,8084/TCP              5d
+argocd               argocd-server                                        ClusterIP   10.96.96.202    <none>        80/TCP,443/TCP                 5d
+argocd               argocd-server-metrics                                ClusterIP   10.96.159.17    <none>        8083/TCP                       5d
+blackroth-capstone   blackroth-service                                    ClusterIP   10.96.211.6     <none>        80/TCP                         30d
+default              argo-rollouts-metrics                                ClusterIP   10.96.38.192    <none>        8090/TCP                       10d
+default              argocd-applicationset-controller                     ClusterIP   10.96.150.141   <none>        7000/TCP,8080/TCP              5d
+default              argocd-dex-server                                    ClusterIP   10.96.77.55     <none>        5556/TCP,5557/TCP,5558/TCP     5d
+default              argocd-metrics                                       ClusterIP   10.96.11.30     <none>        8082/TCP                       5d
+default              argocd-notifications-controller-metrics              ClusterIP   10.96.96.207    <none>        9001/TCP                       5d
+default              argocd-redis                                         ClusterIP   10.96.109.1     <none>        6379/TCP                       5d
+default              argocd-repo-server                                   ClusterIP   10.96.51.243    <none>        8081/TCP,8084/TCP              5d
+default              argocd-server                                        ClusterIP   10.96.216.209   <none>        80/TCP,443/TCP                 5d
+default              argocd-server-metrics                                ClusterIP   10.96.39.151    <none>        8083/TCP                       5d
+default              hrms-canary                                          ClusterIP   10.96.14.175    <none>        80/TCP                         10d
+default              hrms-canary-stable                                   ClusterIP   10.96.177.86    <none>        80/TCP                         10d
+default              hrms-production                                      ClusterIP   10.96.127.68    <none>        80/TCP                         10d
+default              hrms-service                                         ClusterIP   10.96.204.137   <none>        80/TCP                         10d
+default              kubernetes                                           ClusterIP   10.96.0.1       <none>        443/TCP                        30d
+kube-system          kube-dns                                             ClusterIP   10.96.0.10      <none>        53/UDP,53/TCP,9153/TCP         30d
+kube-system          metrics-server                                       ClusterIP   10.96.5.63      <none>        443/TCP                        5d18h
+kube-system          prometheus-kube-prometheus-coredns                   ClusterIP   None            <none>        9153/TCP                       9d
+kube-system          prometheus-kube-prometheus-kube-controller-manager   ClusterIP   None            <none>        10257/TCP                      9d
+kube-system          prometheus-kube-prometheus-kube-etcd                 ClusterIP   None            <none>        2381/TCP                       9d
+kube-system          prometheus-kube-prometheus-kube-proxy                ClusterIP   None            <none>        10249/TCP                      9d
+kube-system          prometheus-kube-prometheus-kube-scheduler            ClusterIP   None            <none>        10259/TCP                      9d
+kube-system          prometheus-kube-prometheus-kubelet                   ClusterIP   None            <none>        10250/TCP,4194/TCP,10255/TCP   9d
+monitoring           alertmanager-operated                                ClusterIP   None            <none>        9093/TCP,9094/TCP,9094/UDP     9d
+monitoring           blackbox-exporter                                    ClusterIP   10.96.201.173   <none>        9115/TCP                       5d21h
+monitoring           prometheus-grafana                                   ClusterIP   10.96.93.56     <none>        80/TCP                         9d
+monitoring           prometheus-kube-prometheus-alertmanager              ClusterIP   10.96.220.12    <none>        9093/TCP,8080/TCP              9d
+monitoring           prometheus-kube-prometheus-operator                  ClusterIP   10.96.28.40     <none>        443/TCP                        9d
+monitoring           prometheus-kube-prometheus-prometheus                ClusterIP   10.96.103.222   <none>        9090/TCP,8080/TCP              9d
+monitoring           prometheus-kube-state-metrics                        ClusterIP   10.96.50.234    <none>        8080/TCP                       9d
+monitoring           prometheus-operated                                  ClusterIP   None            <none>        9090/TCP                       9d
+monitoring           prometheus-prometheus-node-exporter                  ClusterIP   10.96.135.92    <none>        9100/TCP                       9d
+No resources found

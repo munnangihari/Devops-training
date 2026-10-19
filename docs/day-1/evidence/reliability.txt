@@ -1,0 +1,2 @@
+NAMESPACE   NAME       REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+default     hrms-api   Deployment/hrms-api   cpu: <unknown>/70%   3         10        8          3d

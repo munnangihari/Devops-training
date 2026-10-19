@@ -1,0 +1,3 @@
+kind-blackroth-capstone
+NAME                               STATUS   ROLES           AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION                      CONTAINER-RUNTIME
+blackroth-capstone-control-plane   Ready    control-plane   30d   v1.30.0   172.20.0.2    <none>        Debian GNU/Linux 12 (bookworm)   6.18.33.2-microsoft-standard-WSL2   containerd://1.7.15

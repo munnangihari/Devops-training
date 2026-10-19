@@ -1,0 +1,10 @@
+NAME                 STATUS   AGE
+argo-rollouts        Active   10d
+argocd               Active   5d
+blackroth-capstone   Active   30d
+default              Active   30d
+kube-node-lease      Active   30d
+kube-public          Active   30d
+kube-system          Active   30d
+local-path-storage   Active   30d
+monitoring           Active   9d

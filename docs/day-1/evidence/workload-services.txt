@@ -1,0 +1,82 @@
+NAMESPACE            NAME                                                  READY   UP-TO-DATE   AVAILABLE   AGE
+argo-rollouts        deployment.apps/argo-rollouts                         1/1     1            1           10d
+argocd               deployment.apps/argocd-applicationset-controller      1/1     1            1           5d
+argocd               deployment.apps/argocd-dex-server                     1/1     1            1           5d
+argocd               deployment.apps/argocd-notifications-controller       1/1     1            1           5d
+argocd               deployment.apps/argocd-redis                          1/1     1            1           5d
+argocd               deployment.apps/argocd-repo-server                    1/1     1            1           5d
+argocd               deployment.apps/argocd-server                         1/1     1            1           5d
+blackroth-capstone   deployment.apps/blackroth-app                         2/2     2            2           30d
+default              deployment.apps/argo-rollouts                         1/1     1            1           10d
+default              deployment.apps/argocd-applicationset-controller      1/1     1            1           5d
+default              deployment.apps/argocd-dex-server                     1/1     1            1           5d
+default              deployment.apps/argocd-notifications-controller       1/1     1            1           5d
+default              deployment.apps/argocd-redis                          1/1     1            1           5d
+default              deployment.apps/argocd-repo-server                    1/1     1            1           5d
+default              deployment.apps/argocd-server                         1/1     1            1           5d
+default              deployment.apps/hrms-api                              3/3     3            3           3d23h
+default              deployment.apps/hrms-blue                             3/3     3            3           10d
+default              deployment.apps/hrms-green                            3/3     3            3           10d
+default              deployment.apps/hrms-production                       3/3     3            3           10d
+default              deployment.apps/hrms-production-v11                   3/3     3            3           10d
+kube-system          deployment.apps/coredns                               2/2     2            2           30d
+kube-system          deployment.apps/metrics-server                        1/1     1            1           5d18h
+local-path-storage   deployment.apps/local-path-provisioner                1/1     1            1           30d
+monitoring           deployment.apps/blackbox-exporter                     1/1     1            1           5d21h
+monitoring           deployment.apps/prometheus-grafana                    1/1     1            1           9d
+monitoring           deployment.apps/prometheus-kube-prometheus-operator   1/1     1            1           9d
+monitoring           deployment.apps/prometheus-kube-state-metrics         1/1     1            1           9d
+
+NAMESPACE    NAME                                                                    READY   AGE
+argocd       statefulset.apps/argocd-application-controller                          1/1     5d
+default      statefulset.apps/argocd-application-controller                          1/1     5d
+monitoring   statefulset.apps/alertmanager-prometheus-kube-prometheus-alertmanager   1/1     9d
+monitoring   statefulset.apps/prometheus-prometheus-kube-prometheus-prometheus       1/1     9d
+
+NAMESPACE     NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+kube-system   daemonset.apps/kindnet                               1         1         1       1            1           kubernetes.io/os=linux   30d
+kube-system   daemonset.apps/kube-proxy                            1         1         1       1            1           kubernetes.io/os=linux   30d
+monitoring    daemonset.apps/prometheus-prometheus-node-exporter   1         1         1       1            1           kubernetes.io/os=linux   9d
+
+NAMESPACE            NAME                                                         TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                        AGE
+argo-rollouts        service/argo-rollouts-metrics                                ClusterIP   10.96.135.64    <none>        8090/TCP                       10d
+argocd               service/argocd-applicationset-controller                     ClusterIP   10.96.93.65     <none>        7000/TCP,8080/TCP              5d
+argocd               service/argocd-dex-server                                    ClusterIP   10.96.60.22     <none>        5556/TCP,5557/TCP,5558/TCP     5d
+argocd               service/argocd-metrics                                       ClusterIP   10.96.230.146   <none>        8082/TCP                       5d
+argocd               service/argocd-notifications-controller-metrics              ClusterIP   10.96.142.252   <none>        9001/TCP                       5d
+argocd               service/argocd-redis                                         ClusterIP   10.96.35.105    <none>        6379/TCP                       5d
+argocd               service/argocd-repo-server                                   ClusterIP   10.96.112.198   <none>        8081/TCP,8084/TCP              5d
+argocd               service/argocd-server                                        ClusterIP   10.96.96.202    <none>        80/TCP,443/TCP                 5d
+argocd               service/argocd-server-metrics                                ClusterIP   10.96.159.17    <none>        8083/TCP                       5d
+blackroth-capstone   service/blackroth-service                                    ClusterIP   10.96.211.6     <none>        80/TCP                         30d
+default              service/argo-rollouts-metrics                                ClusterIP   10.96.38.192    <none>        8090/TCP                       10d
+default              service/argocd-applicationset-controller                     ClusterIP   10.96.150.141   <none>        7000/TCP,8080/TCP              5d
+default              service/argocd-dex-server                                    ClusterIP   10.96.77.55     <none>        5556/TCP,5557/TCP,5558/TCP     5d
+default              service/argocd-metrics                                       ClusterIP   10.96.11.30     <none>        8082/TCP                       5d
+default              service/argocd-notifications-controller-metrics              ClusterIP   10.96.96.207    <none>        9001/TCP                       5d
+default              service/argocd-redis                                         ClusterIP   10.96.109.1     <none>        6379/TCP                       5d
+default              service/argocd-repo-server                                   ClusterIP   10.96.51.243    <none>        8081/TCP,8084/TCP              5d
+default              service/argocd-server                                        ClusterIP   10.96.216.209   <none>        80/TCP,443/TCP                 5d
+default              service/argocd-server-metrics                                ClusterIP   10.96.39.151    <none>        8083/TCP                       5d
+default              service/hrms-canary                                          ClusterIP   10.96.14.175    <none>        80/TCP                         10d
+default              service/hrms-canary-stable                                   ClusterIP   10.96.177.86    <none>        80/TCP                         10d
+default              service/hrms-production                                      ClusterIP   10.96.127.68    <none>        80/TCP                         10d
+default              service/hrms-service                                         ClusterIP   10.96.204.137   <none>        80/TCP                         10d
+default              service/kubernetes                                           ClusterIP   10.96.0.1       <none>        443/TCP                        30d
+kube-system          service/kube-dns                                             ClusterIP   10.96.0.10      <none>        53/UDP,53/TCP,9153/TCP         30d
+kube-system          service/metrics-server                                       ClusterIP   10.96.5.63      <none>        443/TCP                        5d18h
+kube-system          service/prometheus-kube-prometheus-coredns                   ClusterIP   None            <none>        9153/TCP                       9d
+kube-system          service/prometheus-kube-prometheus-kube-controller-manager   ClusterIP   None            <none>        10257/TCP                      9d
+kube-system          service/prometheus-kube-prometheus-kube-etcd                 ClusterIP   None            <none>        2381/TCP                       9d
+kube-system          service/prometheus-kube-prometheus-kube-proxy                ClusterIP   None            <none>        10249/TCP                      9d
+kube-system          service/prometheus-kube-prometheus-kube-scheduler            ClusterIP   None            <none>        10259/TCP                      9d
+kube-system          service/prometheus-kube-prometheus-kubelet                   ClusterIP   None            <none>        10250/TCP,4194/TCP,10255/TCP   9d
+monitoring           service/alertmanager-operated                                ClusterIP   None            <none>        9093/TCP,9094/TCP,9094/UDP     9d
+monitoring           service/blackbox-exporter                                    ClusterIP   10.96.201.173   <none>        9115/TCP                       5d21h
+monitoring           service/prometheus-grafana                                   ClusterIP   10.96.93.56     <none>        80/TCP                         9d
+monitoring           service/prometheus-kube-prometheus-alertmanager              ClusterIP   10.96.220.12    <none>        9093/TCP,8080/TCP              9d
+monitoring           service/prometheus-kube-prometheus-operator                  ClusterIP   10.96.28.40     <none>        443/TCP                        9d
+monitoring           service/prometheus-kube-prometheus-prometheus                ClusterIP   10.96.103.222   <none>        9090/TCP,8080/TCP              9d
+monitoring           service/prometheus-kube-state-metrics                        ClusterIP   10.96.50.234    <none>        8080/TCP                       9d
+monitoring           service/prometheus-operated                                  ClusterIP   None            <none>        9090/TCP                       9d
+monitoring           service/prometheus-prometheus-node-exporter                  ClusterIP   10.96.135.92    <none>        9100/TCP                       9d

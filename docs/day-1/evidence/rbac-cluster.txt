@@ -1,0 +1,149 @@
+NAME                                                                                                         CREATED AT
+clusterrole.rbac.authorization.k8s.io/admin                                                                  2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/argo-rollouts                                                          2026-10-08T06:34:07Z
+clusterrole.rbac.authorization.k8s.io/argo-rollouts-aggregate-to-admin                                       2026-10-08T06:34:07Z
+clusterrole.rbac.authorization.k8s.io/argo-rollouts-aggregate-to-edit                                        2026-10-08T06:34:07Z
+clusterrole.rbac.authorization.k8s.io/argo-rollouts-aggregate-to-view                                        2026-10-08T06:34:08Z
+clusterrole.rbac.authorization.k8s.io/argocd-application-controller                                          2026-10-14T04:48:04Z
+clusterrole.rbac.authorization.k8s.io/argocd-applicationset-controller                                       2026-10-14T04:48:05Z
+clusterrole.rbac.authorization.k8s.io/argocd-server                                                          2026-10-14T04:48:05Z
+clusterrole.rbac.authorization.k8s.io/cluster-admin                                                          2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/edit                                                                   2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/kindnet                                                                2026-09-18T07:51:18Z
+clusterrole.rbac.authorization.k8s.io/kubeadm:get-nodes                                                      2026-09-18T07:51:15Z
+clusterrole.rbac.authorization.k8s.io/local-path-provisioner-role                                            2026-09-18T07:51:20Z
+clusterrole.rbac.authorization.k8s.io/prometheus-grafana-clusterrole                                         2026-10-09T05:50:25Z
+clusterrole.rbac.authorization.k8s.io/prometheus-kube-prometheus-operator                                    2026-10-09T05:50:25Z
+clusterrole.rbac.authorization.k8s.io/prometheus-kube-prometheus-prometheus                                  2026-10-09T05:50:25Z
+clusterrole.rbac.authorization.k8s.io/prometheus-kube-state-metrics                                          2026-10-09T05:50:25Z
+clusterrole.rbac.authorization.k8s.io/system:aggregate-to-admin                                              2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:aggregate-to-edit                                               2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:aggregate-to-view                                               2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader                                       2026-10-13T10:46:39Z
+clusterrole.rbac.authorization.k8s.io/system:auth-delegator                                                  2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:basic-user                                                      2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:certificates.k8s.io:certificatesigningrequests:nodeclient       2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:certificates.k8s.io:certificatesigningrequests:selfnodeclient   2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:certificates.k8s.io:kube-apiserver-client-approver              2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:certificates.k8s.io:kube-apiserver-client-kubelet-approver      2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:certificates.k8s.io:kubelet-serving-approver                    2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:certificates.k8s.io:legacy-unknown-approver                     2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:attachdetach-controller                              2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:certificate-controller                               2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:clusterrole-aggregation-controller                   2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:cronjob-controller                                   2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:daemon-set-controller                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:deployment-controller                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:disruption-controller                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:endpoint-controller                                  2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:endpointslice-controller                             2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:endpointslicemirroring-controller                    2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:ephemeral-volume-controller                          2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:expand-controller                                    2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:generic-garbage-collector                            2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:horizontal-pod-autoscaler                            2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:job-controller                                       2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:legacy-service-account-token-cleaner                 2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:namespace-controller                                 2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:node-controller                                      2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:persistent-volume-binder                             2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:pod-garbage-collector                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:pv-protection-controller                             2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:pvc-protection-controller                            2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:replicaset-controller                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:replication-controller                               2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:resourcequota-controller                             2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:root-ca-cert-publisher                               2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:route-controller                                     2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:service-account-controller                           2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:service-controller                                   2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:statefulset-controller                               2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:ttl-after-finished-controller                        2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:ttl-controller                                       2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:controller:validatingadmissionpolicy-status-controller          2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:coredns                                                         2026-09-18T07:51:16Z
+clusterrole.rbac.authorization.k8s.io/system:discovery                                                       2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:heapster                                                        2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:kube-aggregator                                                 2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:kube-controller-manager                                         2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:kube-dns                                                        2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:kube-scheduler                                                  2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:kubelet-api-admin                                               2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:metrics-server                                                  2026-10-13T10:46:39Z
+clusterrole.rbac.authorization.k8s.io/system:monitoring                                                      2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:node                                                            2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:node-bootstrapper                                               2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:node-problem-detector                                           2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:node-proxier                                                    2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:persistent-volume-provisioner                                   2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:public-info-viewer                                              2026-09-18T07:51:12Z
+clusterrole.rbac.authorization.k8s.io/system:service-account-issuer-discovery                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/system:volume-scheduler                                                2026-09-18T07:51:13Z
+clusterrole.rbac.authorization.k8s.io/view                                                                   2026-09-18T07:51:12Z
+
+NAME                                                                                                         ROLE                                                                               AGE
+clusterrolebinding.rbac.authorization.k8s.io/argo-rollouts                                                   ClusterRole/argo-rollouts                                                          10d
+clusterrolebinding.rbac.authorization.k8s.io/argo-rollouts-fix                                               ClusterRole/argo-rollouts                                                          5d18h
+clusterrolebinding.rbac.authorization.k8s.io/argocd-application-controller                                   ClusterRole/argocd-application-controller                                          5d
+clusterrolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller                                ClusterRole/argocd-applicationset-controller                                       5d
+clusterrolebinding.rbac.authorization.k8s.io/argocd-server                                                   ClusterRole/argocd-server                                                          5d
+clusterrolebinding.rbac.authorization.k8s.io/cluster-admin                                                   ClusterRole/cluster-admin                                                          30d
+clusterrolebinding.rbac.authorization.k8s.io/kindnet                                                         ClusterRole/kindnet                                                                30d
+clusterrolebinding.rbac.authorization.k8s.io/kubeadm:cluster-admins                                          ClusterRole/cluster-admin                                                          30d
+clusterrolebinding.rbac.authorization.k8s.io/kubeadm:get-nodes                                               ClusterRole/kubeadm:get-nodes                                                      30d
+clusterrolebinding.rbac.authorization.k8s.io/kubeadm:kubelet-bootstrap                                       ClusterRole/system:node-bootstrapper                                               30d
+clusterrolebinding.rbac.authorization.k8s.io/kubeadm:node-autoapprove-bootstrap                              ClusterRole/system:certificates.k8s.io:certificatesigningrequests:nodeclient       30d
+clusterrolebinding.rbac.authorization.k8s.io/kubeadm:node-autoapprove-certificate-rotation                   ClusterRole/system:certificates.k8s.io:certificatesigningrequests:selfnodeclient   30d
+clusterrolebinding.rbac.authorization.k8s.io/kubeadm:node-proxier                                            ClusterRole/system:node-proxier                                                    30d
+clusterrolebinding.rbac.authorization.k8s.io/local-path-provisioner-bind                                     ClusterRole/local-path-provisioner-role                                            30d
+clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator                            ClusterRole/system:auth-delegator                                                  5d18h
+clusterrolebinding.rbac.authorization.k8s.io/prometheus-grafana-clusterrolebinding                           ClusterRole/prometheus-grafana-clusterrole                                         9d
+clusterrolebinding.rbac.authorization.k8s.io/prometheus-kube-prometheus-operator                             ClusterRole/prometheus-kube-prometheus-operator                                    9d
+clusterrolebinding.rbac.authorization.k8s.io/prometheus-kube-prometheus-prometheus                           ClusterRole/prometheus-kube-prometheus-prometheus                                  9d
+clusterrolebinding.rbac.authorization.k8s.io/prometheus-kube-state-metrics                                   ClusterRole/prometheus-kube-state-metrics                                          9d
+clusterrolebinding.rbac.authorization.k8s.io/system:basic-user                                               ClusterRole/system:basic-user                                                      30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:attachdetach-controller                       ClusterRole/system:controller:attachdetach-controller                              30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:certificate-controller                        ClusterRole/system:controller:certificate-controller                               30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:clusterrole-aggregation-controller            ClusterRole/system:controller:clusterrole-aggregation-controller                   30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:cronjob-controller                            ClusterRole/system:controller:cronjob-controller                                   30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:daemon-set-controller                         ClusterRole/system:controller:daemon-set-controller                                30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:deployment-controller                         ClusterRole/system:controller:deployment-controller                                30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:disruption-controller                         ClusterRole/system:controller:disruption-controller                                30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:endpoint-controller                           ClusterRole/system:controller:endpoint-controller                                  30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:endpointslice-controller                      ClusterRole/system:controller:endpointslice-controller                             30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:endpointslicemirroring-controller             ClusterRole/system:controller:endpointslicemirroring-controller                    30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:ephemeral-volume-controller                   ClusterRole/system:controller:ephemeral-volume-controller                          30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:expand-controller                             ClusterRole/system:controller:expand-controller                                    30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:generic-garbage-collector                     ClusterRole/system:controller:generic-garbage-collector                            30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:horizontal-pod-autoscaler                     ClusterRole/system:controller:horizontal-pod-autoscaler                            30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:job-controller                                ClusterRole/system:controller:job-controller                                       30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:legacy-service-account-token-cleaner          ClusterRole/system:controller:legacy-service-account-token-cleaner                 30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:namespace-controller                          ClusterRole/system:controller:namespace-controller                                 30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:node-controller                               ClusterRole/system:controller:node-controller                                      30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:persistent-volume-binder                      ClusterRole/system:controller:persistent-volume-binder                             30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:pod-garbage-collector                         ClusterRole/system:controller:pod-garbage-collector                                30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:pv-protection-controller                      ClusterRole/system:controller:pv-protection-controller                             30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:pvc-protection-controller                     ClusterRole/system:controller:pvc-protection-controller                            30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:replicaset-controller                         ClusterRole/system:controller:replicaset-controller                                30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:replication-controller                        ClusterRole/system:controller:replication-controller                               30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:resourcequota-controller                      ClusterRole/system:controller:resourcequota-controller                             30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:root-ca-cert-publisher                        ClusterRole/system:controller:root-ca-cert-publisher                               30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:route-controller                              ClusterRole/system:controller:route-controller                                     30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:service-account-controller                    ClusterRole/system:controller:service-account-controller                           30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:service-controller                            ClusterRole/system:controller:service-controller                                   30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:statefulset-controller                        ClusterRole/system:controller:statefulset-controller                               30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:ttl-after-finished-controller                 ClusterRole/system:controller:ttl-after-finished-controller                        30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:ttl-controller                                ClusterRole/system:controller:ttl-controller                                       30d
+clusterrolebinding.rbac.authorization.k8s.io/system:controller:validatingadmissionpolicy-status-controller   ClusterRole/system:controller:validatingadmissionpolicy-status-controller          30d
+clusterrolebinding.rbac.authorization.k8s.io/system:coredns                                                  ClusterRole/system:coredns                                                         30d
+clusterrolebinding.rbac.authorization.k8s.io/system:discovery                                                ClusterRole/system:discovery                                                       30d
+clusterrolebinding.rbac.authorization.k8s.io/system:kube-controller-manager                                  ClusterRole/system:kube-controller-manager                                         30d
+clusterrolebinding.rbac.authorization.k8s.io/system:kube-dns                                                 ClusterRole/system:kube-dns                                                        30d
+clusterrolebinding.rbac.authorization.k8s.io/system:kube-scheduler                                           ClusterRole/system:kube-scheduler                                                  30d
+clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server                                           ClusterRole/system:metrics-server                                                  5d18h
+clusterrolebinding.rbac.authorization.k8s.io/system:monitoring                                               ClusterRole/system:monitoring                                                      30d
+clusterrolebinding.rbac.authorization.k8s.io/system:node                                                     ClusterRole/system:node                                                            30d
+clusterrolebinding.rbac.authorization.k8s.io/system:node-proxier                                             ClusterRole/system:node-proxier                                                    30d
+clusterrolebinding.rbac.authorization.k8s.io/system:public-info-viewer                                       ClusterRole/system:public-info-viewer                                              30d
+clusterrolebinding.rbac.authorization.k8s.io/system:service-account-issuer-discovery                         ClusterRole/system:service-account-issuer-discovery                                30d
+clusterrolebinding.rbac.authorization.k8s.io/system:volume-scheduler                                         ClusterRole/system:volume-scheduler                                                30d

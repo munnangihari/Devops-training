@@ -1,0 +1,61 @@
+NAMESPACE            NAME                                                       READY   STATUS    RESTARTS         AGE     IP            NODE                               NOMINATED NODE   READINESS GATES
+argo-rollouts        argo-rollouts-65f48f6fd-4kvbh                              1/1     Running   63               10d     10.244.0.14   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-application-controller-0                            1/1     Running   13               5d      10.244.0.41   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-applicationset-controller-7856557ddf-726ff          1/1     Running   1 (8m32s ago)    3d1h    10.244.0.56   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-dex-server-5469cf855b-ndv4p                         1/1     Running   12 (8m32s ago)   5d      10.244.0.38   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-notifications-controller-86d679cc47-xw2dz           1/1     Running   18               5d      10.244.0.44   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-redis-9bcb659c7-kqjjc                               1/1     Running   12 (8m33s ago)   5d      10.244.0.42   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-repo-server-8658dc4c45-ncpd6                        1/1     Running   20 (8m32s ago)   5d      10.244.0.54   blackroth-capstone-control-plane   <none>           <none>
+argocd               argocd-server-6964497574-zxvch                             1/1     Running   25               5d      10.244.0.51   blackroth-capstone-control-plane   <none>           <none>
+blackroth-capstone   blackroth-app-6966599f8c-p4p4k                             1/1     Running   62 (8m32s ago)   30d     10.244.0.5    blackroth-capstone-control-plane   <none>           <none>
+blackroth-capstone   blackroth-app-6966599f8c-tnqbn                             1/1     Running   67 (8m32s ago)   30d     10.244.0.7    blackroth-capstone-control-plane   <none>           <none>
+default              argo-rollouts-6ddcdd9ddb-pnsz8                             1/1     Running   43 (8m32s ago)   5d19h   10.244.0.29   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-application-controller-0                            1/1     Running   13               5d      10.244.0.39   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-applicationset-controller-f6d5945f7-m85j4           1/1     Running   1 (8m32s ago)    3d1h    10.244.0.47   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-dex-server-5469cf855b-6jv8f                         1/1     Running   14 (8m32s ago)   5d      10.244.0.52   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-notifications-controller-86d679cc47-bpc77           1/1     Running   25 (8m32s ago)   5d      10.244.0.45   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-redis-9bcb659c7-5ngds                               1/1     Running   12 (8m32s ago)   5d      10.244.0.59   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-repo-server-8658dc4c45-dwfsn                        1/1     Running   21 (8m32s ago)   5d      10.244.0.40   blackroth-capstone-control-plane   <none>           <none>
+default              argocd-server-6964497574-88cr8                             1/1     Running   24 (8m32s ago)   5d      10.244.0.53   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-hzqc8                                  1/1     Running   1 (8m32s ago)    2d19h   10.244.0.43   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-j8lzw                                  1/1     Running   1 (8m32s ago)    2d19h   10.244.0.49   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-api-5b7f4778f9-zdttk                                  1/1     Running   1 (8m32s ago)    3d      10.244.0.46   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-blue-859bbd9f6-2hsx8                                  1/1     Running   24 (8m32s ago)   10d     10.244.0.9    blackroth-capstone-control-plane   <none>           <none>
+default              hrms-blue-859bbd9f6-d5js2                                  1/1     Running   23 (8m32s ago)   10d     10.244.0.6    blackroth-capstone-control-plane   <none>           <none>
+default              hrms-blue-859bbd9f6-lm8bh                                  1/1     Running   24 (8m32s ago)   10d     10.244.0.8    blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-6krvt                               1/1     Running   24 (8m32s ago)   10d     10.244.0.13   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-d8bsr                               1/1     Running   23 (8m32s ago)   10d     10.244.0.17   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-d9nss                               1/1     Running   22 (8m33s ago)   10d     10.244.0.20   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-fnwp2                               1/1     Running   23 (8m32s ago)   10d     10.244.0.19   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-hlzfh                               1/1     Running   24 (8m32s ago)   10d     10.244.0.25   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-trzgm                               1/1     Running   22 (8m32s ago)   10d     10.244.0.22   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-vvncf                               1/1     Running   23 (8m32s ago)   10d     10.244.0.16   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-wxzgr                               1/1     Running   22 (8m32s ago)   10d     10.244.0.33   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-x4sqb                               1/1     Running   22 (8m33s ago)   10d     10.244.0.15   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-canary-85b8df4db9-zpxwx                               1/1     Running   22 (8m32s ago)   10d     10.244.0.18   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-green-c5598c7d9-cqdfd                                 1/1     Running   24 (8m32s ago)   10d     10.244.0.11   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-green-c5598c7d9-wwlpg                                 1/1     Running   24 (8m32s ago)   10d     10.244.0.10   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-green-c5598c7d9-wxl6m                                 1/1     Running   24 (8m33s ago)   10d     10.244.0.12   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-5448646d55-f6dxq                           1/1     Running   22 (8m32s ago)   10d     10.244.0.31   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-5448646d55-tb9lz                           1/1     Running   22 (8m32s ago)   10d     10.244.0.21   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-5448646d55-x2rzb                           1/1     Running   22 (8m32s ago)   10d     10.244.0.23   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-v11-79ff9bfb9-8l54x                        1/1     Running   21 (8m32s ago)   10d     10.244.0.30   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-v11-79ff9bfb9-fzkgr                        1/1     Running   22 (8m33s ago)   10d     10.244.0.27   blackroth-capstone-control-plane   <none>           <none>
+default              hrms-production-v11-79ff9bfb9-sp995                        1/1     Running   22 (8m33s ago)   10d     10.244.0.28   blackroth-capstone-control-plane   <none>           <none>
+kube-system          coredns-7db6d8ff4d-4mkhc                                   1/1     Running   37 (8m32s ago)   30d     10.244.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          coredns-7db6d8ff4d-86bt4                                   1/1     Running   37 (8m32s ago)   30d     10.244.0.4    blackroth-capstone-control-plane   <none>           <none>
+kube-system          etcd-blackroth-capstone-control-plane                      1/1     Running   40 (8m32s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kindnet-v65s8                                              1/1     Running   37 (8m32s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-apiserver-blackroth-capstone-control-plane            1/1     Running   40 (8m32s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-controller-manager-blackroth-capstone-control-plane   1/1     Running   73 (8m33s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-proxy-s2n69                                           1/1     Running   37 (8m32s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          kube-scheduler-blackroth-capstone-control-plane            1/1     Running   74 (8m33s ago)   30d     172.20.0.2    blackroth-capstone-control-plane   <none>           <none>
+kube-system          metrics-server-75778854d4-z4kk2                            1/1     Running   47 (8m32s ago)   5d18h   10.244.0.34   blackroth-capstone-control-plane   <none>           <none>
+local-path-storage   local-path-provisioner-988d74bc-45n8w                      1/1     Running   60 (7m30s ago)   30d     10.244.0.3    blackroth-capstone-control-plane   <none>           <none>
+monitoring           alertmanager-prometheus-kube-prometheus-alertmanager-0     2/2     Running   36 (8m32s ago)   9d      10.244.0.36   blackroth-capstone-control-plane   <none>           <none>
+monitoring           blackbox-exporter-84b84694d7-5mt4n                         1/1     Running   17 (8m32s ago)   5d21h   10.244.0.35   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-grafana-9fcf448c4-v56qm                         3/3     Running   70 (8m32s ago)   9d      10.244.0.26   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-kube-prometheus-operator-6d977bff8d-dqmps       1/1     Running   88 (6m34s ago)   9d      10.244.0.24   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-kube-state-metrics-dd5dbb5f8-9bl6d              1/1     Running   71 (8m32s ago)   9d      10.244.0.32   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-prometheus-kube-prometheus-prometheus-0         2/2     Running   58 (8m32s ago)   9d      10.244.0.37   blackroth-capstone-control-plane   <none>           <none>
+monitoring           prometheus-prometheus-node-exporter-796pq                  1/1     Running   66 (8m32s ago)   9d      172.20.0.2    blackroth-capstone-control-plane   <none>           <none>

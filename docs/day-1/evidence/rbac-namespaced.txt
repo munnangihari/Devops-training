@@ -1,0 +1,52 @@
+NAMESPACE     NAME                                                                            CREATED AT
+argocd        role.rbac.authorization.k8s.io/argocd-application-controller                    2026-10-14T04:48:04Z
+argocd        role.rbac.authorization.k8s.io/argocd-applicationset-controller                 2026-10-14T04:48:04Z
+argocd        role.rbac.authorization.k8s.io/argocd-dex-server                                2026-10-14T04:48:04Z
+argocd        role.rbac.authorization.k8s.io/argocd-notifications-controller                  2026-10-14T04:48:04Z
+argocd        role.rbac.authorization.k8s.io/argocd-redis                                     2026-10-14T04:48:04Z
+argocd        role.rbac.authorization.k8s.io/argocd-server                                    2026-10-14T04:48:04Z
+default       role.rbac.authorization.k8s.io/argocd-application-controller                    2026-10-14T04:49:21Z
+default       role.rbac.authorization.k8s.io/argocd-applicationset-controller                 2026-10-14T04:49:21Z
+default       role.rbac.authorization.k8s.io/argocd-dex-server                                2026-10-14T04:49:22Z
+default       role.rbac.authorization.k8s.io/argocd-notifications-controller                  2026-10-14T04:49:22Z
+default       role.rbac.authorization.k8s.io/argocd-redis                                     2026-10-14T04:49:23Z
+default       role.rbac.authorization.k8s.io/argocd-server                                    2026-10-14T04:49:23Z
+default       role.rbac.authorization.k8s.io/hrms-readonly                                    2026-10-15T03:59:02Z
+kube-public   role.rbac.authorization.k8s.io/kubeadm:bootstrap-signer-clusterinfo             2026-09-18T07:51:15Z
+kube-public   role.rbac.authorization.k8s.io/system:controller:bootstrap-signer               2026-09-18T07:51:14Z
+kube-system   role.rbac.authorization.k8s.io/extension-apiserver-authentication-reader        2026-09-18T07:51:14Z
+kube-system   role.rbac.authorization.k8s.io/kube-proxy                                       2026-09-18T07:51:16Z
+kube-system   role.rbac.authorization.k8s.io/kubeadm:kubelet-config                           2026-09-18T07:51:15Z
+kube-system   role.rbac.authorization.k8s.io/kubeadm:nodes-kubeadm-config                     2026-09-18T07:51:15Z
+kube-system   role.rbac.authorization.k8s.io/system::leader-locking-kube-controller-manager   2026-09-18T07:51:14Z
+kube-system   role.rbac.authorization.k8s.io/system::leader-locking-kube-scheduler            2026-09-18T07:51:14Z
+kube-system   role.rbac.authorization.k8s.io/system:controller:bootstrap-signer               2026-09-18T07:51:14Z
+kube-system   role.rbac.authorization.k8s.io/system:controller:cloud-provider                 2026-09-18T07:51:14Z
+kube-system   role.rbac.authorization.k8s.io/system:controller:token-cleaner                  2026-09-18T07:51:14Z
+
+NAMESPACE     NAME                                                                                      ROLE                                                  AGE
+argocd        rolebinding.rbac.authorization.k8s.io/argocd-application-controller                       Role/argocd-application-controller                    5d
+argocd        rolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller                    Role/argocd-applicationset-controller                 5d
+argocd        rolebinding.rbac.authorization.k8s.io/argocd-dex-server                                   Role/argocd-dex-server                                5d
+argocd        rolebinding.rbac.authorization.k8s.io/argocd-notifications-controller                     Role/argocd-notifications-controller                  5d
+argocd        rolebinding.rbac.authorization.k8s.io/argocd-redis                                        Role/argocd-redis                                     5d
+argocd        rolebinding.rbac.authorization.k8s.io/argocd-server                                       Role/argocd-server                                    5d
+default       rolebinding.rbac.authorization.k8s.io/argocd-application-controller                       Role/argocd-application-controller                    5d
+default       rolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller                    Role/argocd-applicationset-controller                 5d
+default       rolebinding.rbac.authorization.k8s.io/argocd-dex-server                                   Role/argocd-dex-server                                5d
+default       rolebinding.rbac.authorization.k8s.io/argocd-notifications-controller                     Role/argocd-notifications-controller                  5d
+default       rolebinding.rbac.authorization.k8s.io/argocd-redis                                        Role/argocd-redis                                     5d
+default       rolebinding.rbac.authorization.k8s.io/argocd-server                                       Role/argocd-server                                    5d
+default       rolebinding.rbac.authorization.k8s.io/hrms-readonly-binding                               Role/hrms-readonly                                    4d1h
+kube-public   rolebinding.rbac.authorization.k8s.io/kubeadm:bootstrap-signer-clusterinfo                Role/kubeadm:bootstrap-signer-clusterinfo             30d
+kube-public   rolebinding.rbac.authorization.k8s.io/system:controller:bootstrap-signer                  Role/system:controller:bootstrap-signer               30d
+kube-system   rolebinding.rbac.authorization.k8s.io/kube-proxy                                          Role/kube-proxy                                       30d
+kube-system   rolebinding.rbac.authorization.k8s.io/kubeadm:kubelet-config                              Role/kubeadm:kubelet-config                           30d
+kube-system   rolebinding.rbac.authorization.k8s.io/kubeadm:nodes-kubeadm-config                        Role/kubeadm:nodes-kubeadm-config                     30d
+kube-system   rolebinding.rbac.authorization.k8s.io/metrics-server-auth-reader                          Role/extension-apiserver-authentication-reader        5d18h
+kube-system   rolebinding.rbac.authorization.k8s.io/system::extension-apiserver-authentication-reader   Role/extension-apiserver-authentication-reader        30d
+kube-system   rolebinding.rbac.authorization.k8s.io/system::leader-locking-kube-controller-manager      Role/system::leader-locking-kube-controller-manager   30d
+kube-system   rolebinding.rbac.authorization.k8s.io/system::leader-locking-kube-scheduler               Role/system::leader-locking-kube-scheduler            30d
+kube-system   rolebinding.rbac.authorization.k8s.io/system:controller:bootstrap-signer                  Role/system:controller:bootstrap-signer               30d
+kube-system   rolebinding.rbac.authorization.k8s.io/system:controller:cloud-provider                    Role/system:controller:cloud-provider                 30d
+kube-system   rolebinding.rbac.authorization.k8s.io/system:controller:token-cleaner                     Role/system:controller:token-cleaner                  30d

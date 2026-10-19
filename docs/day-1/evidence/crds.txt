@@ -1,0 +1,19 @@
+NAME                                        CREATED AT
+alertmanagerconfigs.monitoring.coreos.com   2026-10-09T05:50:02Z
+alertmanagers.monitoring.coreos.com         2026-10-09T05:50:03Z
+analysisruns.argoproj.io                    2026-10-08T06:36:02Z
+analysistemplates.argoproj.io               2026-10-08T06:34:02Z
+applications.argoproj.io                    2026-10-14T04:48:01Z
+applicationsets.argoproj.io                 2026-10-16T04:16:25Z
+appprojects.argoproj.io                     2026-10-14T04:48:03Z
+clusteranalysistemplates.argoproj.io        2026-10-08T06:34:03Z
+experiments.argoproj.io                     2026-10-08T06:34:04Z
+podmonitors.monitoring.coreos.com           2026-10-09T05:50:03Z
+probes.monitoring.coreos.com                2026-10-09T05:50:03Z
+prometheusagents.monitoring.coreos.com      2026-10-09T05:50:04Z
+prometheuses.monitoring.coreos.com          2026-10-09T05:50:04Z
+prometheusrules.monitoring.coreos.com       2026-10-09T05:50:04Z
+rollouts.argoproj.io                        2026-10-08T06:36:08Z
+scrapeconfigs.monitoring.coreos.com         2026-10-09T05:50:05Z
+servicemonitors.monitoring.coreos.com       2026-10-09T05:50:05Z
+thanosrulers.monitoring.coreos.com          2026-10-09T05:50:06Z
