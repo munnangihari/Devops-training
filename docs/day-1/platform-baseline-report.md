@@ -49,3 +49,12 @@ The Day 1 baseline review and initial RBAC, networking, availability, and backup
 - Production failover and point-in-time recovery remain untested.
 - NetworkPolicy enforcement remains BLOCKED pending validation with a policy-enforcing CNI.
 - Pod restart investigation remains unresolved; the root cause was not confirmed.
+
+### Follow-up: Cluster Responsiveness Incident
+
+- **Impact:** Widespread probe timeouts and container restarts across application, GitOps, monitoring, and Kubernetes system workloads.
+- **Recovery:** All inspected pods returned to Running/Ready, and the node is Ready.
+- **Evidence:** API server logs showed slow requests and API aggregation warnings. etcd logs showed transactions taking approximately 100–300 ms, with some operations exceeding the expected 100 ms duration. The metrics API returned HTTP 503 during the incident.
+- **Resource checks:** No OOM-kill evidence was found in the inspected kernel logs. The Kind node container showed RestartCount=0 and OOMKilled=false.
+- **Assessment:** Control-plane and etcd latency likely contributed to the widespread timeouts. The original trigger is not confirmed.
+- **Follow-up:** Monitor etcd latency, API server responsiveness, resource utilization, probe failures, and restart counts.
