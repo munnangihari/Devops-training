@@ -15,3 +15,5 @@ Environment: kind-blackroth-capstone
 | R08 | RBAC least privilege not yet verified | Medium | RBAC inventory collected; permissions review pending | Audit effective permissions and validate unauthorized access denial |
 
 Severity ratings are preliminary and must be reassessed after current-state validation.
+
+| R09 | Current Kubernetes identity can delete nodes | High | `kubectl auth can-i delete nodes` returned `yes` | Identify the active identity and review cluster-admin and node-deletion permissions; apply least privilege |
