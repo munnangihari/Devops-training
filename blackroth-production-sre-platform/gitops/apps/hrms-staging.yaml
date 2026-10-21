@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hrms-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/munnangihari/Devops-training.git
+    targetRevision: main
+    path: platform-baseline/blackroth-production-sre-platform/gitops/overlays/staging
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hrms-staging
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

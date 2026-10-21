@@ -1,0 +1,7 @@
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/hrms-api   3/3     3            3           7m28s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hrms-api-5b7f4778f9-6jp6d   1/1     Running   0          2m32s
+pod/hrms-api-5b7f4778f9-tm896   1/1     Running   0          2m43s
+pod/hrms-api-5b7f4778f9-wtlr7   1/1     Running   0          2m20s

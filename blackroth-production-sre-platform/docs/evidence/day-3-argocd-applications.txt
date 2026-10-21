@@ -1,0 +1,3 @@
+NAME           SYNC STATUS   HEALTH STATUS   REVISION                                   PROJECT
+hrms-dev       Synced        Healthy         8c449c3cf4f0d365569f3b923cb2deabd8e7b2f4   default
+hrms-staging   Synced        Healthy         fff9b761ec597750fd5de8b33b5f1d34a0382215   default
