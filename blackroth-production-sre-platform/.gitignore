@@ -8,3 +8,19 @@ secrets/
 # Private keys
 *.pem
 *.key
+
+# Terraform generated state, plans, and local configuration
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local Terraform variables; retain the example file
+*.tfvars
+!*.tfvars.example

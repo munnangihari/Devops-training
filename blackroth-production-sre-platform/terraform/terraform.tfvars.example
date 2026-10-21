@@ -1,0 +1,6 @@
+aws_region        = "eu-north-1"
+project_name      = "blackroth"
+environment       = "dev"
+vpc_cidr          = "10.40.0.0/16"
+availability_zone = "eu-north-1a"
+subnet_cidr       = "10.40.1.0/24"
