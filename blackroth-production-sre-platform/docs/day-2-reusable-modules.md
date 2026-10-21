@@ -35,3 +35,14 @@ Improve infrastructure reuse, configuration boundaries, and safe delivery.
 - Security scans have not yet been recorded as completed.
 - Remote state, multi-AZ networking, routing, and production IAM require further review.
 - Helm lint reported zero failures but does not replace runtime or security testing.
+
+## Security Validation Results
+
+- Terraform formatting: Passed (`terraform fmt -recursive`).
+- Terraform validation: Passed (`terraform validate`).
+- Checkov Terraform scan: 24 passed, 0 failed, 0 skipped.
+- VPC Flow Logs: Configured with a dedicated IAM role and policy.
+- CloudWatch Logs: KMS encryption enabled with 365-day retention.
+- KMS key: Explicit key policy and automatic key rotation configured.
+- Default VPC security group: Restricted.
+- Terraform apply: Not performed; infrastructure deployment remains unverified.
